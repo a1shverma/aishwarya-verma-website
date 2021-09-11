@@ -24,7 +24,7 @@ function Projects({ repos }: ProjectsProps): React.ReactElement {
           <LineHeading fontSize={{ base: `5xl`, md: `6xl` }} mx='auto' textAlign='center'>
             Work Experience
           </LineHeading>
-          <Text mt={3}>A quick list of the organizations I've been a part of over the years. I have also been an active volunteer in several NGOs and communities so adding them as well. </Text>
+          <Text mt={3}>A quick list of the organizations I have been a part of over the years. I have also been an active volunteer in several NGOs and communities so adding them as well. </Text>
           <VStack direction='column' my={16} width='full' height='full' maxWidth='5xl' spacing={10}>
             {pinnedRepos
               .sort(

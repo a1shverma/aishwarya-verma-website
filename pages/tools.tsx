@@ -13,8 +13,7 @@ import {
 } from '@chakra-ui/react'
 import LineHeading from '@/components/LineHeading'
 import ToolGrid from '@/components/ToolGrid'
-import { AiFillApple, AiFillChrome, AiFillWindows, AiOutlineDesktop } from 'react-icons/ai'
-import { BsPhone } from 'react-icons/bs'
+import { AiOutlineDesktop } from 'react-icons/ai'
 import { NextSeo } from 'next-seo'
 
 function Tools(): React.ReactElement {
