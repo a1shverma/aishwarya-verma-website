@@ -19,8 +19,8 @@ import { useEffect } from 'react';
 
 const links = [
   {
-    name: `Experience`,
-    link: `/experience`,
+    name: `Projects`,
+    link: `/projects`,
   },
   {
     name: `Tools`,

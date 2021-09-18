@@ -18,13 +18,13 @@ interface ProjectsProps {
 function Projects({ repos }: ProjectsProps): React.ReactElement {
   return (
     <>
-      <NextSeo title='Experience' />
+      <NextSeo title='Projects' />
       <Box width='full' px={3} minH='100vh' height='full' mx='auto' maxW='6xl' py='28'>
         <Flex direction='column' alignItems='center' width='full' px={3} height='full' mx='auto'>
           <LineHeading fontSize={{ base: `5xl`, md: `6xl` }} mx='auto' textAlign='center'>
-            Work Experience
+            Projects
           </LineHeading>
-          <Text mt={3}>A quick list of the organizations I have been a part of over the years. I have also been an active volunteer in several NGOs and communities so adding them as well. </Text>
+          <Text mt={3}>A quick list of some of the projects I have worked upon.  </Text>
           <VStack direction='column' my={16} width='full' height='full' maxWidth='5xl' spacing={10}>
             {pinnedRepos
               .sort(
@@ -34,7 +34,7 @@ function Projects({ repos }: ProjectsProps): React.ReactElement {
                   ).getTime() -
                   new Date(repos.filter((y: repoType) => y.name === b.id)[0]?.created_at).getTime()
               )
-              .reverse()
+              // .reverse()
               .map((data: pinnedRepoType, index) => (
                 <PinnedProjects
                   key={index.toString()}
@@ -50,7 +50,7 @@ function Projects({ repos }: ProjectsProps): React.ReactElement {
           <Text mt={3}>A list of all of the public repositories on my GitHub.</Text>
           <Button
             as='a'
-            href='https://github.com/mah51'
+            href='https://github.com/a1shverma'
             variant='ghost'
             colorScheme='brand'
             size='lg'

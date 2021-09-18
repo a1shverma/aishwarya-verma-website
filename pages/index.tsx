@@ -85,8 +85,8 @@ export default function Home(): React.ReactElement {
               >
                 I am a full-time <b>Software Engineer</b>, part-time <b>Project Manager</b>, active <b>Volunteer</b>, enthusiastic <b>Event-Organiser</b>, Fiction Lover, amateur <b>Blogger</b>, die-hard <b>Foodie</b> and a noob <b>Gamer</b>.
                 <br/><br/>Here, you can find about my{' '}
-                <Link href='/experience' passHref>
-                  <ChakraLink>work & education experiences</ChakraLink>
+                <Link href='/projects' passHref>
+                  <ChakraLink>projects</ChakraLink>
                 </Link> {' '}
                  , {' '}
                  <Link href='/tools' passHref>

@@ -55,7 +55,7 @@ const LinkCard = ({ name, link, date, label }: LinkType): JSX.Element => {
             borderColor={useColorModeValue(`gray.100`, `gray.700`)}
           >
             <Image
-              src={`./static/images/profile.jpeg`}
+              src={`${link}`}
               objectFit='cover'
               alt={name + ' screenshot'}
               objectPosition='0px 0px'
