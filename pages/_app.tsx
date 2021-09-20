@@ -53,7 +53,7 @@ export default function MyApp({ Component, pageProps }: AppProps): React.ReactEl
       />
       <ChakraProvider theme={theme}>
         <PlausibleProvider
-          domain='michael-hall.me'
+          domain='aishverma.vercel.app'
           selfHosted
           trackOutboundLinks
           enabled={process.env.NODE_ENV === 'production'}
