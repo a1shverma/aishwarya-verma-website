@@ -11,13 +11,13 @@ import {
   Tag,
 } from '@chakra-ui/react';
 import formatDistance from 'date-fns/formatDistance';
-import { useQuery } from 'react-query';
+//import { useQuery } from 'react-query';
 import BlogBadge from '../BlogBadge';
 
 interface BlogPostProps {
   title: string;
   summary: string;
-  slug: string;
+  link: string;
   tags: string[];
   publishedAt: string;
   featured?: boolean;
@@ -26,18 +26,18 @@ interface BlogPostProps {
 const BlogPost = ({
   title,
   summary,
-  slug,
+  link,
   tags,
   publishedAt,
   featured,
 }: BlogPostProps): JSX.Element => {
   const spliceBP = useBreakpointValue({ base: 2, md: 4 });
-  const { data } = useQuery(`views${slug}`, () => {
-    return fetch(`/api/views/${slug}`).then(res => res.json());
-  });
-  const views = data?.total;
+  // const { data } = useQuery(`views${slug}`, () => {
+  //   return fetch(`/api/views/${slug}`).then(res => res.json());
+  // });
+  // const views = data?.total;
   return (
-    <Link href={`/blog/${slug}`} passHref>
+    <Link href={`${link}`} passHref>
       <ChakraLink _hover={{ textDecoration: `none` }} width='full'>
         <Flex
           mb={8}
@@ -95,7 +95,7 @@ const BlogPost = ({
               {formatDistance(new Date(publishedAt), new Date(), {
                 addSuffix: true,
               })}{' '}
-              {'•'} {`${views ? new Number(views).toLocaleString() : '–––'} views`}
+              {/* {'•'} {`${views ? new Number(views).toLocaleString() : '–––'} views`} */}
             </Text>
           </Flex>
           <Heading

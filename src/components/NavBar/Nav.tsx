@@ -34,10 +34,10 @@ const links = [
     name: 'Blog',
     link: '/blog',
   },
-  {
-        name: `Music`,
-        link: `/spotify`,
-  },
+  // {
+  //       name: `Music`,
+  //       link: `/spotify`,
+  // },
   // {
   //   type: `dropdown`,
   //   name: `Other`,
