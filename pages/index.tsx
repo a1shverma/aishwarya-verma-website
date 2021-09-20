@@ -101,7 +101,8 @@ export default function Home(): React.ReactElement {
                   <ChakraLink>blogs</ChakraLink>
                 </Link>{' '}
                 where I articulate my experiences, learnings and thoughts on varied topics. 
-                .
+                <br/><br/>P.S. Head to the footer if you wanna vibe with me on a song I might be listening to at the moment :)
+                
               </chakra.p>
             </Flex>
           </Flex>
