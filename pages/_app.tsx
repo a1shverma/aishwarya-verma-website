@@ -44,12 +44,12 @@ export default function MyApp({ Component, pageProps }: AppProps): React.ReactEl
           site_name: `Aishwarya Verma`,
           images: [
             {
-              url: `https://www.michael-hall.me/static/images/profile.jpeg`,
+              url: `https://aishverma.vercel.app/static/images/profile.jpeg`,
               alt: `Profile Picture`,
             },
           ],
         }}
-        description='The purpose of this site is for me to test things out & maybe show some things off.'
+        description='I figured I should have a website, because that is what everybody was doing.'
       />
       <ChakraProvider theme={theme}>
         <PlausibleProvider
@@ -57,7 +57,7 @@ export default function MyApp({ Component, pageProps }: AppProps): React.ReactEl
           selfHosted
           trackOutboundLinks
           enabled={process.env.NODE_ENV === 'production'}
-          customDomain={'https://stats.michael-hall.me'}
+          customDomain={'https://aishverma.vercel.app'}
         >
           <QueryClientProvider client={queryClient}>
             <MDXProvider components={MDXComponents}>
