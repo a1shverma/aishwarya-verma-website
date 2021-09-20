@@ -17,8 +17,8 @@ const AppLayout = ({ children }: AppLayoutProps): JSX.Element => {
   return (
     <>
       <NextSeo
-        canonical={`https://www.michael-hall.me/${router.asPath}`}
-        openGraph={{ url: `https://www.michael-hall.me/${router.asPath}` }}
+        canonical={`https://aishverma.vercel.app/${router.asPath}`}
+        openGraph={{ url: `https://aishverma.vercel.app/${router.asPath}` }}
       />
       <UpDown type='normal'>
         <SVG icon='triangle' width={48} stroke left='10%' top='20%' />

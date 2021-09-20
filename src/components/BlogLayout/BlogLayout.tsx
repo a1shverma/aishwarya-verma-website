@@ -41,7 +41,7 @@ const BlogLayout = ({ children, frontMatter }: BlogLayoutProps): JSX.Element => 
       <NextSeo
         title={frontMatter.title}
         description={frontMatter.summary}
-        canonical={`https://michael-hall.me${router.asPath}`}
+        canonical={`https://aishverma.vercel.app${router.asPath}`}
         twitter={{
           cardType: 'summary_large_image',
           site: '@Mikerophone_',
@@ -50,14 +50,14 @@ const BlogLayout = ({ children, frontMatter }: BlogLayoutProps): JSX.Element => 
           title: frontMatter.title,
           site_name: 'Michael Hall',
           description: frontMatter.summary,
-          url: `https://michael-hall.me${router.asPath}`,
+          url: `https://aishverma.vercel.app${router.asPath}`,
           type: 'article',
           article: {
             publishedTime: new Date(frontMatter.publishedAt).toISOString(),
           },
           images: [
             {
-              url: `https://michael-hall.me${frontMatter.image}`,
+              url: `https://aishverma.vercel.app${frontMatter.image}`,
             },
           ],
         }}
