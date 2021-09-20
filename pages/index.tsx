@@ -51,7 +51,7 @@ export default function Home(): React.ReactElement {
                 boxSize='250px'
                 src='./static/images/profile.jpeg'
                 objectFit='cover'
-                alt='Michael Hall'
+                alt='Aishwarya Verma'
                 onLoad={() => setImageLoad(true)}
               />
             </Skeleton>
