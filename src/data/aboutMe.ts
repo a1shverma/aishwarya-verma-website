@@ -12,6 +12,10 @@ const info = props => [
     return: '"Bengaluru, India"',
   },
   {
+    input: 'self.currentWork',
+    return: '["JPMorgan Chase & Co. - Software Engineer I", "Codebucket Solutions Pvt. Ltd. - Project Manager"]',
+  },
+  {
     input: 'self.education',
     return: '"Information Science and Engineering - The National Institute of Engineering"',
   },

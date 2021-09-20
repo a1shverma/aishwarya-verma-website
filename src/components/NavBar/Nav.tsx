@@ -34,6 +34,10 @@ const links = [
     name: 'Blog',
     link: '/blog',
   },
+  {
+    name: 'Experiences',
+    link: '/wip',
+  }
   // {
   //       name: `Music`,
   //       link: `/spotify`,
