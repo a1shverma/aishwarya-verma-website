@@ -93,7 +93,7 @@ export default function Home(): React.ReactElement {
                   <ChakraLink>tools</ChakraLink>
                 </Link>{' '}
                 I like working with or the{' '}
-                <Link href='/links' passHref>
+                <Link href='/certificates' passHref>
                   <ChakraLink>certificates</ChakraLink>
                 </Link>{' '}
                 I own. <br/>Sometimes I even write{' '}
