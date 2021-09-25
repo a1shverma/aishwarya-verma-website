@@ -14,7 +14,7 @@ import {
 import { usePalette } from 'react-palette';
 import { ToolType } from '@/data/tools';
 
-export const ToolCard = ({ name, description, link, id, labels }: ToolType): JSX.Element => {
+export const ToolCard = ({ name, link, id, labels }: ToolType): JSX.Element => {
   const { data } = usePalette(`./static/images/toolImages/${id}.png`);
   const { colorMode } = useColorMode();
 
@@ -102,9 +102,9 @@ export const ToolCard = ({ name, description, link, id, labels }: ToolType): JSX
             ))}
           </Stack>
 
-          <Text color={useColorModeValue(`gray.600`, `gray.400`)} whiteSpace='normal' width='100%'>
+          {/* <Text color={useColorModeValue(`gray.600`, `gray.400`)} whiteSpace='normal' width='100%'>
             {description}
-          </Text>
+          </Text> */}
         </Flex>
       </SimpleGrid>
     </Box>
