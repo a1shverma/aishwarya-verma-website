@@ -6,7 +6,7 @@ export interface ToolType {
   name: string;
   category: categories[];
   labels?: string[];
-  description: string;
+  //description: string;
 }
 
 const Tools: ToolType[] = [
@@ -16,7 +16,7 @@ const Tools: ToolType[] = [
     link: `https://python.com/`,
     labels: [`Advanced`],
     name: `Python`,
-    description: `My go-to backend language for any type of problem.`,
+    //description: `My go-to backend language for any type of problem.`,
   },
   {
     id: `c++`,
@@ -24,7 +24,7 @@ const Tools: ToolType[] = [
     link: `https://c++.com/`,
     labels: [`Advanced`],
     name: `C++`,
-    description: `OOP language`,
+    //description: `OOP language`,
   },
   {
     id: `c`,
@@ -32,7 +32,7 @@ const Tools: ToolType[] = [
     link: `https://c.com/`,
     labels: [`Advanced`],
     name: `C`,
-    description: `Lorem Ipsum`,
+    //description: `Lorem Ipsum`,
   },
   {
     id: `java`,
@@ -40,7 +40,7 @@ const Tools: ToolType[] = [
     link: `https://java.com/`,
     labels: [`Intermediate`],
     name: `Java`,
-    description: `Lorem Ipsum`,
+    //description: `Lorem Ipsum`,
   },
   {
     id: `php`,
@@ -48,7 +48,7 @@ const Tools: ToolType[] = [
     link: `https://php.com`,
     labels: [`Intermediate`],
     name: `PHP`,
-    description: `Lorem Ipsum`,
+    //description: `Lorem Ipsum`,
   },
   {
     id: `html`,
@@ -56,7 +56,7 @@ const Tools: ToolType[] = [
     link: `https://www.html.com`,
     labels: [`Advanced`],
     name: `HTML5`,
-    description: `Lorem Ipsum`,
+    //description: `Lorem Ipsum`,
   },
   {
     id: `css`,
@@ -64,7 +64,7 @@ const Tools: ToolType[] = [
     link: `https://www.css.com`,
     labels: [`Advanced`],
     name: `CSS3`,
-    description: `Lorem Ipsum`,
+    //description: `Lorem Ipsum`,
   },
   {
     id: `sql`,
@@ -72,7 +72,7 @@ const Tools: ToolType[] = [
     link: `https://www.mysql.com`,
     labels: [`Advanced`],
     name: `MySQL`,
-    description: `Lorem Ipsum`,
+    //description: `Lorem Ipsum`,
   },
   {
     id: `bootstrap`,
@@ -80,7 +80,7 @@ const Tools: ToolType[] = [
     link: `https://www.bootstrap.com`,
     labels: [`Advanced`],
     name: `Bootstrap`,
-    description: `Lorem Ipsum`,
+    //description: `Lorem Ipsum`,
   },
   {
     id: `node`,
@@ -88,7 +88,7 @@ const Tools: ToolType[] = [
     link: `https://www.node.com/`,
     labels: [`Intermediate`],
     name: `NodeJS`,
-    description: `Lorem Ipsum`,
+    //description: `Lorem Ipsum`,
   },
   {
     id: `javascript`,
@@ -96,7 +96,7 @@ const Tools: ToolType[] = [
     link: `https://javascipt.com/`,
     labels: [`Advanced`],
     name: `Javascript`,
-    description: `Lorem Ipsum`,
+    //description: `Lorem Ipsum`,
   },
   {
     id: `flask`,
@@ -104,7 +104,7 @@ const Tools: ToolType[] = [
     link: `https://flask.com`,
     labels: [`Advanced`],
     name: `Flask`,
-    description: `Lorem Ipsum`,
+    //description: `Lorem Ipsum`,
   },
   {
     id: `wordpress`,
@@ -112,7 +112,7 @@ const Tools: ToolType[] = [
     link: `https://wordpress.com`,
     labels: [`Advanced`],
     name: `Wordpress`,
-    description: `Lorem Ipsum`,
+    //description: `Lorem Ipsum`,
   },
   {
     id: `jenkins`,
@@ -120,7 +120,7 @@ const Tools: ToolType[] = [
     link: `https://jenkins.com/`,
     labels: [`Advanced`],
     name: `Jenkins`,
-    description: `Lorem Ipsum`,
+    //description: `Lorem Ipsum`,
   },
   {
     id: `git`,
@@ -128,7 +128,7 @@ const Tools: ToolType[] = [
     link: `https://git.com/`,
     labels: [`Advanced`],
     name: `Git`,
-    description: `Lorem Ipsum`,
+    //description: `Lorem Ipsum`,
   },
   {
     id: `bitbucket`,
@@ -136,7 +136,7 @@ const Tools: ToolType[] = [
     link: `https://bitbucket.com/`,
     labels: [`Advanced`],
     name: `Bitbucket`,
-    description: `Lorem Ipsum`,
+    //description: `Lorem Ipsum`,
   },
   {
     id: `github`,
@@ -144,7 +144,7 @@ const Tools: ToolType[] = [
     link: `https://www.github.com/`,
     labels: [`Advanced`],
     name: `Github`,
-    description: `Lorem Ipsum`,
+    //description: `Lorem Ipsum`,
   },
 
   {
@@ -153,7 +153,7 @@ const Tools: ToolType[] = [
     link: `https://aws.com/`,
     labels: [`Intermediate`],
     name: `AWS`,
-    description: `Lorem Ipsum`,
+    //description: `Lorem Ipsum`,
   },
   {
     id: `heroku`,
@@ -161,7 +161,7 @@ const Tools: ToolType[] = [
     link: `https://heroku.com/`,
     labels: [`Intermediate`],
     name: `Heroku`,
-    description: `Lorem Ipsum`,
+    //description: `Lorem Ipsum`,
   },
   {
     id: `selenium`,
@@ -169,7 +169,7 @@ const Tools: ToolType[] = [
     link: `https://selenium.com/`,
     labels: [`Intermediate`],
     name: `Selenium`,
-    description: `Lorem Ipsum.`,
+    //description: `Lorem Ipsum.`,
   },
   {
     id: `jira`,
@@ -177,7 +177,7 @@ const Tools: ToolType[] = [
     link: `https://jira.info/`,
     labels: [`Advanced`],
     name: `Jira`,
-    description: `Lorem Ipsum.`,
+    //description: `Lorem Ipsum.`,
   },
   {
     id: `r`,
@@ -185,7 +185,7 @@ const Tools: ToolType[] = [
     link: `https://r.com/`,
     labels: [`Beginner`],
     name: `R`,
-    description: `Lorem Ipsum.`,
+    //description: `Lorem Ipsum.`,
   },
   {
     id: `tableau`,
@@ -193,7 +193,7 @@ const Tools: ToolType[] = [
     link: `https://tableau.com`,
     labels: [`Intermediate`],
     name: `Tableau`,
-    description: `Lorem Ipsum.`,
+    //description: `Lorem Ipsum.`,
   },
   {
     id: `matplotlib`,
@@ -201,7 +201,7 @@ const Tools: ToolType[] = [
     link: `https://matplotlib.com`,
     labels: [`Intermediate`],
     name: `Matplotlib`,
-    description: `Lorem Ipsum.`,
+    //description: `Lorem Ipsum.`,
   },
   {
     id: `excel`,
@@ -209,7 +209,7 @@ const Tools: ToolType[] = [
     link: `https://jira.info/`,
     labels: [`Advanced`],
     name: `MS Excel`,
-    description: `Lorem Ipsum.`,
+    //description: `Lorem Ipsum.`,
   },
 ];
 export default Tools;
