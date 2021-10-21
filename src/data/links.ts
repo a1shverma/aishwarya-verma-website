@@ -8,6 +8,13 @@ export interface LinkType {
 }
 
 export const links: LinkType[] = [
+  {
+    id: 'ffg',
+    link: './static/images/certificates/ffg.png',
+    name: 'Force For Good',
+    label: 'Hackathon',
+    date: new Date('2021-10-21T17:20'),
+  },
     {
     id: 'aws',
     link: './static/images/certificates/aws.png',
