@@ -49,7 +49,7 @@ export default function Home(): React.ReactElement {
                 flexGrow={3}
                 borderRadius='2xl'
                 boxSize='250px'
-                src='./static/images/profile.jpeg'
+                src='./static/images/profile.jpg'
                 objectFit='cover'
                 alt='Aishwarya Verma'
                 onLoad={() => setImageLoad(true)}
