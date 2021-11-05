@@ -44,7 +44,7 @@ export default function MyApp({ Component, pageProps }: AppProps): React.ReactEl
           site_name: `Aishwarya Verma`,
           images: [
             {
-              url: `https://aishverma.vercel.app/static/images/profile.jpeg`,
+              url: `https://aishverma.vercel.app/static/images/profile.jpg`,
               alt: `Profile Picture`,
             },
           ],
