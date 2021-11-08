@@ -41,7 +41,7 @@ export default function MyApp({ Component, pageProps }: AppProps): React.ReactEl
         openGraph={{
           title: `Aishwarya Verma`,
           type: `website`,
-          site_name: `Aishwarya Verma`,
+          site_name: `Personal Website`,
           images: [
             {
               url: `https://aishverma.vercel.app/static/images/profile.jpg`,
