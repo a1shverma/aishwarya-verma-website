@@ -9,15 +9,15 @@ const info = props => [
   },
   {
     input: 'self.currentLocation',
-    return: '"Bengaluru, India"',
+    return: '"Seattle, United States"',
   },
   {
-    input: 'self.currentWork',
-    return: '["JPMorgan Chase & Co. - Software Engineer I", "Codebucket Solutions Pvt. Ltd. - Project Manager"]',
+    input: 'self.workExperience',
+    return: '["JPMorgan Chase & Co. - Software Engineering Analyst II", "Codebucket Solutions Pvt. Ltd. - Project Manager"]',
   },
   {
     input: 'self.education',
-    return: '"Information Science and Engineering - The National Institute of Engineering"',
+    return: '"MS in Information Systems - University of Washington : Foster School of Business","BE in Information Science - The National Institute of Engineering"',
   },
   {
     input: 'self.projects',
