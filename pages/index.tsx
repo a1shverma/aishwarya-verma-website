@@ -83,7 +83,7 @@ export default function Home(): React.ReactElement {
                 fontSize='l'
                 mt={2}
               >
-                Currently in <b>University of Washington</b> pursuing MS in <b>Information Systems</b>. A big time <b>Product</b> and <b>Data</b> enthusiast looking to build a career around them. Best described as a supporter of <b>Women in Tech</b>, an active <b>Volunteer</b>, a <b>Formula One</b> fanatic, die-hard <b>Foodie</b> and a noob <b>Gamer</b>.
+                Currently at <b>University of Washington</b> pursuing MS in <b>Information Systems</b>. A <b>Product</b> and <b>Data</b> enthusiast looking forward to build a career around it. Best described as a supporter of <b>Women in Tech</b>, an active <b>Volunteer</b>, a <b>Formula One</b> fanatic, die-hard <b>Foodie</b>, <b>Marvel-head </b>and a noob <b>Gamer</b>.
                 <br/><br/>Here, you can find my{' '}
                 <Link href='/projects' passHref>
                   <ChakraLink>projects</ChakraLink>
@@ -101,7 +101,7 @@ export default function Home(): React.ReactElement {
                   <ChakraLink>blogs</ChakraLink>
                 </Link>{' '}
                 where I articulate my thoughts and learnings. 
-                <br/><br/><br/>P.S. Head to the footer if you wanna vibe with me on a song I might be listening to at the moment :)
+                <br/><br/><b>P.S.</b> Head to the footer if you wanna vibe with me on a song I might be listening to at the moment :)
                 
               </chakra.p>
             </Flex>
