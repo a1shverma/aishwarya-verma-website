@@ -9,6 +9,34 @@ export interface LinkType {
 
 export const links: LinkType[] = [
   {
+    id: 'snowflake',
+    link: './static/images/certificates/snowflake.png',
+    name: 'Snowflake - Snow Pro Core',
+    label: 'Data Engineering',
+    date: new Date('2023-09-17T17:20'),
+  },
+  {
+    id: 'databricks-fundamentals',
+    link: './static/images/certificates/databricks-fundamentals.png',
+    name: 'Databricks - Lakehouse Fundamentals',
+    label: 'Data Engineering',
+    date: new Date('2023-08-16T17:20'),
+  },
+  {
+    id: 'dataiku',
+    link: './static/images/certificates/dataiku.png',
+    name: 'Dataiku - Core Designer',
+    label: 'Data Science',
+    date: new Date('2023-07-20T17:20'),
+  },
+  {
+    id: 'aws-cloud',
+    link: './static/images/certificates/aws_cloud.png',
+    name: 'AWS - Cloud Practitioner',
+    label: 'Cloud Computing',
+    date: new Date('2022-09-26T17:20'),
+  },
+  {
     id: 'ffg',
     link: './static/images/certificates/ffg.png',
     name: 'Force For Good',

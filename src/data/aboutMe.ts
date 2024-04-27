@@ -9,11 +9,11 @@ const info = props => [
   },
   {
     input: 'self.currentLocation',
-    return: '"Seattle, United States"',
+    return: '"Atlanta, United States"',
   },
   {
     input: 'self.workExperience',
-    return: '["JPMorgan Chase & Co. - Software Engineering Analyst II", "Codebucket Solutions Pvt. Ltd. - Project Manager"]',
+    return: '["Aimpoint Digital - Data Engineering & Analytics Consultant", "JPMorgan Chase & Co. - Data Analytics Engineer II", "Codebucket Solutions Pvt. Ltd. - Technical Project Manager"]',
   },
   {
     input: 'self.education',
@@ -36,7 +36,7 @@ const info = props => [
 
   {
     input: 'self.interpersonalSkills',
-    return: '[ "Leadership", "Team Work", "Public Speaking", "Event Planning", "Problem Solving", "Innovative"]',
+    return: '[ "Program Management", "Leadership", "Team Work", "Public Speaking", "Event Planning", "Problem Solving", "Innovative"]',
   },
   {
     input: 'self.contactMe()',
