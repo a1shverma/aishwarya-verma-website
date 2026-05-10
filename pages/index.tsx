@@ -9,21 +9,13 @@ import {
   Link as ChakraLink,
   Text,
   HStack,
-  VStack,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { NextSeo } from 'next-seo';
 
-const MARQUEE_ITEMS = [
-  'AI Engineering', 'RAG Systems', 'GenAI Pipelines', 'LLM Applications',
-  'Formula One', 'Books', 'Travel', 'NYC', 'Data Engineering',
-  'Women in Tech', 'Food', 'Marvel', 'Photography',
-]
-
 export default function Home(): React.ReactElement {
   const [imageLoad, setImageLoad] = useState(false)
-  const borderColor = useColorModeValue('gray.200', 'gray.700')
   const mutedColor = useColorModeValue('gray.500', 'gray.400')
   const textColor = useColorModeValue('gray.800', 'gray.50')
   const bioColor = useColorModeValue('gray.600', 'gray.300')
@@ -53,10 +45,10 @@ export default function Home(): React.ReactElement {
 
             {/* Name */}
             <Heading
-              fontSize={{ base: '5xl', sm: '7xl', md: '8xl', lg: '8xl', xl: '9xl' }}
+              fontSize={{ base: '4xl', sm: '5xl', md: '6xl', lg: '6xl', xl: '7xl' }}
               fontWeight='900'
-              letterSpacing='-0.04em'
-              lineHeight={0.88}
+              letterSpacing='-0.03em'
+              lineHeight={1}
               color={textColor}
               mb={10}
             >
@@ -169,34 +161,6 @@ export default function Home(): React.ReactElement {
           </Box>
         </Flex>
 
-        {/* ── Marquee ───────────────────────────────────────────────────────── */}
-        <Box
-          mt={{ base: 16, lg: 24 }}
-          borderTop='1px solid'
-          borderColor={borderColor}
-          pt={6}
-          pb={6}
-        >
-          <Box className='marquee-wrapper'>
-            <Box className='marquee-track'>
-              {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
-                <Flex key={i} align='center' mr={10} flexShrink={0}>
-                  <Text
-                    fontSize='xs'
-                    fontWeight='bold'
-                    textTransform='uppercase'
-                    letterSpacing='0.15em'
-                    color={mutedColor}
-                    whiteSpace='nowrap'
-                  >
-                    {item}
-                  </Text>
-                  <chakra.span mx={5} color='brand.500' fontSize='xs'>✦</chakra.span>
-                </Flex>
-              ))}
-            </Box>
-          </Box>
-        </Box>
       </Box>
     </>
   )
