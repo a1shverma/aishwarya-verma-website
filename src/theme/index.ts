@@ -1,18 +1,49 @@
 import { ChakraTheme, extendTheme, ThemeComponentProps } from '@chakra-ui/react';
 import { transparentize, mode } from '@chakra-ui/theme-tools';
 
-// 2. Call `extendTheme` and pass your custom values
-
 const theme = extendTheme({
   config: {
-    useSystemColorMode: true,
+    initialColorMode: 'dark',
+    useSystemColorMode: false,
   },
-  components: {
-    Link: {
-      baseStyle: props => ({
-        color: mode('brand.600', 'brand.300')(props),
-      }),
+
+  fonts: {
+    heading: `'Cabinet Grotesk', sans-serif`,
+    body: `'Ubuntu', sans-serif`,
+  },
+
+  colors: {
+    // ── Hot pink accent ───────────────────────────────────────────────────────
+    brand: {
+      primary: '#FF2D6B',
+      50:  '#FFF0F5',
+      100: '#FFD6E5',
+      200: '#FFB3CC',
+      300: '#FF85AA',
+      400: '#FF4D80',
+      500: '#FF2D6B',
+      600: '#E01557',
+      700: '#B30D43',
+      800: '#800830',
+      900: '#4D031D',
     },
+
+    // ── Warm gray scale (drives all dark surfaces) ────────────────────────────
+    gray: {
+      50:  '#F5EEE8',   // cream — used for light-mode bg and dark-mode primary text
+      100: '#E8DDD5',
+      200: '#CBBFB8',
+      300: '#AFA090',
+      400: '#8A7D75',
+      500: '#655D58',
+      600: '#423B38',
+      700: '#2A2220',   // borders in dark
+      800: '#1A1412',   // card surfaces in dark
+      900: '#0C0A0B',   // main bg in dark
+    },
+  },
+
+  components: {
     Heading: {
       baseStyle: {
         fontFamily: `'Cabinet Grotesk', sans-serif`,
@@ -22,8 +53,13 @@ const theme = extendTheme({
     },
     Text: {
       baseStyle: {
-        fontFamily: 'Ubuntu',
+        fontFamily: `'Ubuntu', sans-serif`,
       },
+    },
+    Link: {
+      baseStyle: (props: any) => ({
+        color: mode('brand.600', 'brand.400')(props),
+      }),
     },
     Button: {
       variants: {
@@ -45,32 +81,20 @@ const theme = extendTheme({
       },
     },
   },
+
   styles: {
     global: (props: any) => ({
+      body: {
+        bg: mode('#FAFAF8', '#0C0A0B')(props),
+        color: mode('gray.900', 'gray.50')(props),
+      },
       '*': {
-        bg: 'none',
-
         _selection: {
-          color: props.colorMode === `dark` ? `black` : `white`,
-          bg: props.colorMode === `dark` ? `brand.300` : `brand.600`,
+          color: 'white',
+          bg: 'brand.500',
         },
       },
     }),
-  },
-  colors: {
-    brand: {
-      primary: `#47d185`,
-      50: `#e1f7eb`,
-      100: `#c4f0d8`,
-      200: `#a7e9c5`,
-      300: `#8ae1b1`,
-      400: `#50d38b`,
-      500: `#32cc77`,
-      600: `#2bae66`,
-      700: `#1d7444`,
-      800: `#1d7444`,
-      900: `#155733`,
-    },
   },
 });
 

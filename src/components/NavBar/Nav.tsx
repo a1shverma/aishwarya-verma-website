@@ -99,7 +99,7 @@ function Nav(): JSX.Element {
       top={0}
       left={0}
       zIndex={10}
-      bg={useColorModeValue(`rgba(255, 255, 255, 0.8)`, `rgba(26, 33, 41, 0.8)`)}
+      bg={useColorModeValue(`rgba(250, 250, 248, 0.85)`, `rgba(12, 10, 11, 0.85)`)}
       sx={{ backdropFilter: `saturate(180%) blur(5px)` }}
     >
       <chakra.nav mx='auto' p={3}>

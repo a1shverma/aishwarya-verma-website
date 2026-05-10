@@ -66,9 +66,9 @@ export default function Home(): React.ReactElement {
                 bgGradient={`linear(to-r, ${useColorModeValue(
                   `brand.600`,
                   `brand.400`
-                )}, ${useColorModeValue(`teal.600`, `teal.400`)}, ${useColorModeValue(
-                  `blue.600`,
-                  `blue.300`
+                )}, ${useColorModeValue(`purple.600`, `purple.400`)}, ${useColorModeValue(
+                  `orange.500`,
+                  `orange.300`
                 )})`}
                 className='moving-grad'
                 bgClip='text'
