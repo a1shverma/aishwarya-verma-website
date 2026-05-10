@@ -1,0 +1,266 @@
+import React from 'react'
+import {
+  Box,
+  Flex,
+  Text,
+  VStack,
+  HStack,
+  useColorModeValue,
+  chakra,
+  Badge,
+  Link,
+} from '@chakra-ui/react'
+import { NextSeo } from 'next-seo'
+import timeline, { TimelineEntry, EntryType } from '@/data/timeline'
+
+// ─── Entry type config ────────────────────────────────────────────────────────
+
+const typeConfig: Record<EntryType, { icon: string; label: string; accent: string }> = {
+  book:       { icon: '📚', label: 'Reading',      accent: '#9F7AEA' }, // purple
+  movie:      { icon: '🎬', label: 'Watched',       accent: '#38B2AC' }, // teal
+  show:       { icon: '📺', label: 'Watching',      accent: '#ED8936' }, // orange
+  restaurant: { icon: '🍽️', label: 'Ate at',        accent: '#FC8181' }, // red
+  travel:     { icon: '✈️', label: 'Traveled to',   accent: '#63B3ED' }, // blue
+  song:       { icon: '🎵', label: 'On repeat',     accent: '#F687B3' }, // pink
+  quote:      { icon: '💬', label: 'Resonated',     accent: '#F6AD55' }, // amber
+  activity:   { icon: '🎯', label: 'Tried',         accent: '#68D391' }, // green
+  moment:     { icon: '✨', label: 'Moment',        accent: '#A0AEC0' }, // gray
+}
+
+// ─── Star rating ──────────────────────────────────────────────────────────────
+
+function Stars({ rating }: { rating: number }): React.ReactElement {
+  return (
+    <HStack spacing={0}>
+      {[1,2,3,4,5].map(i => (
+        <chakra.span key={i} fontSize='xs' color={i <= rating ? '#F6AD55' : 'gray.300'}>★</chakra.span>
+      ))}
+    </HStack>
+  )
+}
+
+// ─── Entry card ───────────────────────────────────────────────────────────────
+
+function EntryCard({ entry }: { entry: TimelineEntry }): React.ReactElement {
+  const cfg = typeConfig[entry.type]
+  const cardBg = useColorModeValue('white', 'gray.800')
+  const border = useColorModeValue('gray.100', 'gray.700')
+  const mutedColor = useColorModeValue('gray.500', 'gray.400')
+  const titleColor = useColorModeValue('gray.800', 'gray.100')
+  const isQuote = entry.type === 'quote'
+
+  const inner = (
+    <Box
+      bg={cardBg}
+      border='1px solid'
+      borderColor={border}
+      borderRadius='2xl'
+      overflow='hidden'
+      height='full'
+      transition='all 0.2s'
+      _hover={{ shadow: 'md', transform: 'translateY(-2px)' }}
+      position='relative'
+    >
+      {/* Colored top accent bar */}
+      <Box h='3px' bg={cfg.accent} />
+
+      <Box p={4}>
+        {/* Type label */}
+        <HStack spacing={1} mb={3}>
+          <Text fontSize='xs'>{cfg.icon}</Text>
+          <Text
+            fontSize='10px'
+            fontWeight='bold'
+            textTransform='uppercase'
+            letterSpacing='0.1em'
+            color={cfg.accent}
+          >
+            {cfg.label}
+          </Text>
+        </HStack>
+
+        {/* Title */}
+        <Text
+          fontWeight={isQuote ? 'normal' : 'bold'}
+          fontSize={isQuote ? 'sm' : 'md'}
+          color={titleColor}
+          fontStyle={isQuote ? 'italic' : 'normal'}
+          lineHeight='short'
+          mb={1}
+        >
+          {entry.title}
+        </Text>
+
+        {/* Subtitle */}
+        {entry.subtitle && (
+          <Text fontSize='xs' color={mutedColor} mb={2}>{entry.subtitle}</Text>
+        )}
+
+        {/* Rating */}
+        {entry.rating && <Stars rating={entry.rating} />}
+
+        {/* Note */}
+        {entry.note && (
+          <Text fontSize='xs' color={mutedColor} mt={2} lineHeight='tall'>
+            {entry.note}
+          </Text>
+        )}
+      </Box>
+    </Box>
+  )
+
+  if (entry.link) {
+    return (
+      <Link href={entry.link} isExternal _hover={{ textDecoration: 'none' }}>
+        {inner}
+      </Link>
+    )
+  }
+  return inner
+}
+
+// ─── Month section ────────────────────────────────────────────────────────────
+
+function MonthSection({
+  month,
+  year,
+  entries,
+  isFirst,
+  isLast,
+}: {
+  month: string
+  year: number
+  entries: TimelineEntry[]
+  isFirst: boolean
+  isLast: boolean
+}): React.ReactElement {
+  const lineColor = useColorModeValue('gray.200', 'gray.700')
+  const monthColor = useColorModeValue('gray.800', 'white')
+  const mutedColor = useColorModeValue('gray.400', 'gray.500')
+
+  // Split entries: quotes go full width, rest go in grid
+  const quotes = entries.filter(e => e.type === 'quote')
+  const rest = entries.filter(e => e.type !== 'quote')
+
+  return (
+    <Flex width='full' gap={{ base: 4, md: 10 }}>
+      {/* ── Timeline spine ── */}
+      <Flex direction='column' align='center' flexShrink={0} w='40px'>
+        {/* Line above dot */}
+        <Box w='2px' flex={1} bg={isFirst ? 'transparent' : lineColor} minH='16px' />
+
+        {/* Dot */}
+        <Box
+          w='12px'
+          h='12px'
+          borderRadius='full'
+          bg={isFirst ? 'brand.400' : lineColor}
+          border='2px solid'
+          borderColor={isFirst ? 'brand.400' : lineColor}
+          flexShrink={0}
+          position='relative'
+        >
+          {isFirst && (
+            <Box
+              position='absolute'
+              inset='-4px'
+              borderRadius='full'
+              border='2px solid'
+              borderColor='brand.300'
+              opacity={0.4}
+            />
+          )}
+        </Box>
+
+        {/* Line below dot */}
+        <Box w='2px' flex={1} bg={isLast ? 'transparent' : lineColor} />
+      </Flex>
+
+      {/* ── Month content ── */}
+      <Box flex={1} pb={16} pt={1}>
+        {/* Month header */}
+        <HStack mb={6} spacing={3} align='baseline'>
+          <Text
+            fontSize={{ base: '2xl', md: '4xl' }}
+            fontWeight='black'
+            letterSpacing='tight'
+            color={monthColor}
+            lineHeight={1}
+          >
+            {month}
+          </Text>
+          <Text fontSize='sm' color={mutedColor} fontWeight='medium'>{year}</Text>
+          {isFirst && (
+            <Badge colorScheme='brand' borderRadius='full' fontSize='10px' px={2}>
+              Now
+            </Badge>
+          )}
+        </HStack>
+
+        {/* Cards grid */}
+        <Box
+          display='grid'
+          gridTemplateColumns={{ base: '1fr', sm: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
+          gap={4}
+        >
+          {rest.map((entry, i) => (
+            <Box key={i}>
+              <EntryCard entry={entry} />
+            </Box>
+          ))}
+        </Box>
+
+        {/* Quotes — full width, below the grid */}
+        {quotes.length > 0 && (
+          <Box mt={4} display='grid' gridTemplateColumns='1fr' gap={4}>
+            {quotes.map((entry, i) => (
+              <EntryCard key={i} entry={entry} />
+            ))}
+          </Box>
+        )}
+      </Box>
+    </Flex>
+  )
+}
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
+export default function Year2026(): React.ReactElement {
+  const mutedColor = useColorModeValue('gray.500', 'gray.400')
+
+  return (
+    <>
+      <NextSeo title='2026' />
+      <Box width='full' maxW='4xl' mx='auto' px={{ base: 4, md: 8 }} pt='28' pb='20'>
+        {/* Header */}
+        <Box mb={16}>
+          <Text
+            fontSize={{ base: '6xl', md: '9xl' }}
+            fontWeight='black'
+            letterSpacing='tighter'
+            lineHeight={1}
+            bgGradient='linear(to-r, brand.400, teal.400)'
+            bgClip='text'
+          >
+            2026
+          </Text>
+          <Text fontSize='lg' color={mutedColor} mt={2}>
+            A running log of the year — month by month.
+          </Text>
+        </Box>
+
+        {/* Timeline */}
+        <VStack spacing={0} align='stretch'>
+          {timeline.map((monthData, i) => (
+            <MonthSection
+              key={`${monthData.month}-${monthData.year}`}
+              {...monthData}
+              isFirst={i === 0}
+              isLast={i === timeline.length - 1}
+            />
+          ))}
+        </VStack>
+      </Box>
+    </>
+  )
+}

@@ -19,6 +19,10 @@ import { useEffect } from 'react';
 
 const links = [
   {
+    name: '2026',
+    link: '/2026',
+  },
+  {
     name: 'Interests',
     link: '/interests',
   },
