@@ -35,8 +35,8 @@ const links = [
     link: '/blog',
   },
   {
-    name: 'Books',
-    link: '/books',
+    name: 'Interests',
+    link: '/interests',
   },
   {
     name: 'Experiences',
