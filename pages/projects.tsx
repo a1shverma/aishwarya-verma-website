@@ -33,6 +33,7 @@ function PinnedCard({ project, index, repo }: { project: pinnedRepoType; index: 
   const tagBg = useColorModeValue('gray.100', 'gray.800')
   const tagColor = useColorModeValue('gray.600', 'gray.400')
   const numColor = useColorModeValue('gray.100', 'gray.800')
+  const imageBg = useColorModeValue('gray.100', 'gray.900')
 
   return (
     <Box
@@ -46,7 +47,7 @@ function PinnedCard({ project, index, repo }: { project: pinnedRepoType; index: 
     >
       {/* Image */}
       {project.image && (
-        <Box overflow='hidden' h={{ base: '160px', md: '220px' }} bg={useColorModeValue('gray.100', 'gray.900')}>
+        <Box overflow='hidden' h={{ base: '160px', md: '220px' }} bg={imageBg}>
           <Image
             src={project.image}
             alt={project.name}

@@ -10,7 +10,6 @@ import {
   VStack,
   chakra,
   Link as ChakraLink,
-  Badge,
   useColorModeValue,
 } from '@chakra-ui/react';
 import Link from 'next/link';
