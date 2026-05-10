@@ -308,56 +308,121 @@ function TVShowsTab(): React.ReactElement {
 
 // ─── Travel ───────────────────────────────────────────────────────────────────
 
-function TravelCard({ place }: { place: typeof places[0] }): React.ReactElement {
-  const cardBg = useColorModeValue('white', 'gray.800')
-  const border = useColorModeValue('gray.200', 'gray.700')
-  const mutedColor = useColorModeValue('gray.500', 'gray.400')
-  const placeholderBg = useColorModeValue('gray.100', 'gray.700')
-  const [activeImg, setActiveImg] = useState(0)
-  const hasImages = place.images && place.images.length > 0
+function PassportStamp({ place }: { place: typeof places[0] }): React.ReactElement {
+  const placeholderBg = useColorModeValue('gray.200', 'gray.700')
+  const hasImage = place.images && place.images.length > 0
 
   return (
-    <Box bg={cardBg} border='1px solid' borderColor={border} borderRadius='xl' overflow='hidden' transition='all 0.2s' _hover={{ shadow: 'md', borderColor: 'brand.400' }}>
-      {hasImages ? (
-        <Box position='relative'>
-          <Image
-            src={place.images![activeImg]}
-            alt={place.city}
-            width='full'
-            height='180px'
-            objectFit='cover'
-          />
-          {place.images!.length > 1 && (
-            <HStack position='absolute' bottom={2} right={2} spacing={1}>
-              {place.images!.map((_, i) => (
-                <Box
-                  key={i}
-                  as='button'
-                  w='8px'
-                  h='8px'
-                  borderRadius='full'
-                  bg={i === activeImg ? 'white' : 'whiteAlpha.600'}
-                  onClick={() => setActiveImg(i)}
-                  transition='all 0.15s'
-                />
-              ))}
-            </HStack>
-          )}
-        </Box>
+    <Box
+      position='relative'
+      borderRadius='xl'
+      overflow='hidden'
+      w='full'
+      paddingBottom='100%' // square
+      cursor='default'
+      role='group'
+    >
+      {/* Photo or placeholder */}
+      {hasImage ? (
+        <Image
+          src={place.images![0]}
+          alt={place.city}
+          position='absolute'
+          inset={0}
+          w='full'
+          h='full'
+          objectFit='cover'
+          transition='transform 0.4s ease'
+          _groupHover={{ transform: 'scale(1.04)' }}
+        />
       ) : (
-        <Flex bg={placeholderBg} height='180px' align='center' justify='center'>
-          <Text fontSize='4xl'>{place.emoji}</Text>
+        <Flex position='absolute' inset={0} bg={placeholderBg} align='center' justify='center'>
+          <Text fontSize='5xl'>{place.emoji}</Text>
         </Flex>
       )}
-      <VStack align='start' spacing={1} p={4}>
-        <HStack justify='space-between' width='full'>
-          <Text fontWeight='bold'>{place.city}</Text>
-          {hasImages && <Text fontSize='xl'>{place.emoji}</Text>}
-        </HStack>
-        <Text fontSize='sm' color={mutedColor}>{place.country}</Text>
-        {place.highlight && <Text fontSize='sm' color={mutedColor} fontStyle='italic' pt={1}>{place.highlight}</Text>}
-      </VStack>
+
+      {/* Dark gradient overlay */}
+      <Box
+        position='absolute'
+        inset={0}
+        bgGradient='linear(to-t, blackAlpha.800 0%, blackAlpha.300 50%, transparent 100%)'
+      />
+
+      {/* City label bottom-left */}
+      <Box position='absolute' bottom={3} left={4}>
+        <Text color='white' fontWeight='bold' fontSize='sm' lineHeight='short' noOfLines={1}>
+          {place.city}
+        </Text>
+        <Text color='whiteAlpha.700' fontSize='xs'>{place.country}</Text>
+      </Box>
+
+      {/* Passport stamp top-right */}
+      {place.visitedDate && (
+        <Box
+          position='absolute'
+          top={3}
+          right={3}
+          transform='rotate(10deg)'
+          border='2px dashed'
+          borderColor='whiteAlpha.800'
+          borderRadius='full'
+          w='64px'
+          h='64px'
+          display='flex'
+          flexDirection='column'
+          alignItems='center'
+          justifyContent='center'
+          bg='blackAlpha.500'
+          backdropFilter='blur(4px)'
+          boxShadow='0 0 0 1px rgba(255,255,255,0.15)'
+        >
+          <Text
+            color='white'
+            fontSize='9px'
+            fontWeight='bold'
+            letterSpacing='0.15em'
+            textTransform='uppercase'
+            lineHeight={1}
+          >
+            {place.visitedDate.month}
+          </Text>
+          <Box w='30px' h='1px' bg='whiteAlpha.500' my='3px' />
+          <Text
+            color='white'
+            fontSize='13px'
+            fontWeight='bold'
+            lineHeight={1}
+          >
+            {place.visitedDate.year}
+          </Text>
+        </Box>
+      )}
     </Box>
+  )
+}
+
+function WishlistItem({ place }: { place: typeof places[0] }): React.ReactElement {
+  const border = useColorModeValue('gray.200', 'gray.700')
+  const bg = useColorModeValue('gray.50', 'gray.800')
+  const mutedColor = useColorModeValue('gray.500', 'gray.400')
+
+  return (
+    <HStack
+      border='1px dashed'
+      borderColor={border}
+      bg={bg}
+      borderRadius='xl'
+      px={4}
+      py={3}
+      spacing={3}
+    >
+      <Text fontSize='2xl'>{place.emoji}</Text>
+      <VStack align='start' spacing={0}>
+        <Text fontWeight='semibold' fontSize='sm'>{place.city}</Text>
+        <Text fontSize='xs' color={mutedColor}>{place.country}</Text>
+      </VStack>
+      <Text ml='auto' fontSize='lg'>✈️</Text>
+    </HStack>
   )
 }
 
@@ -367,14 +432,18 @@ function TravelTab(): React.ReactElement {
 
   return (
     <VStack width='full' spacing={12} align='start'>
-      {[{ label: 'Been To', list: visited }, { label: 'Wishlist', list: wishlist }].map(({ label, list }) => (
-        <Box key={label} width='full'>
-          <SectionHeading>{label}</SectionHeading>
-          <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={5}>
-            {list.map(place => <TravelCard key={place.id} place={place} />)}
-          </SimpleGrid>
-        </Box>
-      ))}
+      <Box width='full'>
+        <SectionHeading>Stamps Collected</SectionHeading>
+        <SimpleGrid columns={{ base: 2, sm: 3, md: 4 }} spacing={4}>
+          {visited.map(place => <PassportStamp key={place.id} place={place} />)}
+        </SimpleGrid>
+      </Box>
+      <Box width='full'>
+        <SectionHeading>On the List</SectionHeading>
+        <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={3}>
+          {wishlist.map(place => <WishlistItem key={place.id} place={place} />)}
+        </SimpleGrid>
+      </Box>
     </VStack>
   )
 }
