@@ -90,14 +90,28 @@ function Projects({ repos }: ProjectsProps): React.ReactElement {
 }
 
 export async function getServerSideProps(): Promise<{ props: ProjectsProps }> {
-  const response = await fetch(
-    //`http://localhost:3000/api/github`
-     `${process.env.NEXT_PUBLIC_HOST || `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`}/api/github`
+  const [userResponse, reposResponse] = await Promise.all([
+    fetch('https://api.github.com/users/a1shverma'),
+    fetch('https://api.github.com/users/a1shverma/repos?per_page=100'),
+  ])
+
+  const user = await userResponse.json()
+  const repositories = await reposResponse.json()
+
+  const notForked = Array.isArray(repositories)
+    ? repositories.filter((repo: any) => !repo.fork)
+    : []
+
+  const stars = notForked.reduce(
+    (a: number, r: any) => a + (r.stargazers_count || 0),
+    0
   )
 
-  const { stars, repos, followers } = await response.json()
+  const repos = notForked.map(({ id, name, html_url, created_at, pushed_at, language, description, fork, stargazers_count }: any) => ({
+    id, name, html_url, created_at, pushed_at, language, description, fork, stargazers_count,
+  }))
 
-  return { props: { stars, repos, followers, revalidate: 600 } }
+  return { props: { stars, repos, followers: user.followers || 0, revalidate: 600 } }
 }
 
 export default Projects
