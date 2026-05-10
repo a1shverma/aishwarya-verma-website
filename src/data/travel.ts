@@ -1,21 +1,24 @@
+export type PlaceType = 'city' | 'national-park'
+
 export interface Place {
   id: string
-  city: string
+  name: string
   country: string
+  type: PlaceType
   emoji?: string
-  visited: boolean
   visitedDate?: { month: string; year: number }
   highlight?: string
   images?: string[]
 }
 
 export const places: Place[] = [
+  // ── Cities ──────────────────────────────────────────────────────────────────
   {
     id: 'new-york',
-    city: 'New York City',
+    name: 'New York City',
     country: 'United States',
+    type: 'city',
     emoji: '🗽',
-    visited: true,
     visitedDate: { month: 'JAN', year: 2023 },
     highlight: 'Home.',
     images: [
@@ -26,51 +29,48 @@ export const places: Place[] = [
   },
   {
     id: 'atlanta',
-    city: 'Atlanta',
+    name: 'Atlanta',
     country: 'United States',
+    type: 'city',
     emoji: '🍑',
-    visited: true,
     visitedDate: { month: 'AUG', year: 2022 },
     highlight: 'Where it all started in the US.',
   },
   {
     id: 'seattle',
-    city: 'Seattle',
+    name: 'Seattle',
     country: 'United States',
+    type: 'city',
     emoji: '🌧️',
-    visited: true,
     visitedDate: { month: 'SEP', year: 2021 },
     highlight: 'Pike Place Market and endless coffee.',
   },
   {
     id: 'bangalore',
-    city: 'Bangalore',
+    name: 'Bangalore',
     country: 'India',
+    type: 'city',
     emoji: '🇮🇳',
-    visited: true,
     visitedDate: { month: 'DEC', year: 2023 },
     highlight: 'Home home.',
   },
+
+  // ── National Parks ───────────────────────────────────────────────────────────
   {
-    id: 'tokyo',
-    city: 'Tokyo',
-    country: 'Japan',
-    emoji: '🗼',
-    visited: false,
+    id: 'grand-canyon',
+    name: 'Grand Canyon',
+    country: 'United States',
+    type: 'national-park',
+    emoji: '🏜️',
+    visitedDate: { month: 'OCT', year: 2022 },
   },
   {
-    id: 'paris',
-    city: 'Paris',
-    country: 'France',
-    emoji: '🗼',
-    visited: false,
-  },
-  {
-    id: 'london',
-    city: 'London',
-    country: 'United Kingdom',
-    emoji: '🎡',
-    visited: false,
+    id: 'yellowstone',
+    name: 'Yellowstone',
+    country: 'United States',
+    type: 'national-park',
+    emoji: '🌋',
+    visitedDate: { month: 'JUL', year: 2023 },
   },
 ]
 

@@ -326,7 +326,7 @@ function PassportStamp({ place }: { place: typeof places[0] }): React.ReactEleme
       {hasImage ? (
         <Image
           src={place.images![0]}
-          alt={place.city}
+          alt={place.name}
           position='absolute'
           inset={0}
           w='full'
@@ -351,7 +351,7 @@ function PassportStamp({ place }: { place: typeof places[0] }): React.ReactEleme
       {/* City label bottom-left */}
       <Box position='absolute' bottom={3} left={4}>
         <Text color='white' fontWeight='bold' fontSize='sm' lineHeight='short' noOfLines={1}>
-          {place.city}
+          {place.name}
         </Text>
         <Text color='whiteAlpha.700' fontSize='xs'>{place.country}</Text>
       </Box>
@@ -401,47 +401,22 @@ function PassportStamp({ place }: { place: typeof places[0] }): React.ReactEleme
   )
 }
 
-function WishlistItem({ place }: { place: typeof places[0] }): React.ReactElement {
-  const border = useColorModeValue('gray.200', 'gray.700')
-  const bg = useColorModeValue('gray.50', 'gray.800')
-  const mutedColor = useColorModeValue('gray.500', 'gray.400')
-
-  return (
-    <HStack
-      border='1px dashed'
-      borderColor={border}
-      bg={bg}
-      borderRadius='xl'
-      px={4}
-      py={3}
-      spacing={3}
-    >
-      <Text fontSize='2xl'>{place.emoji}</Text>
-      <VStack align='start' spacing={0}>
-        <Text fontWeight='semibold' fontSize='sm'>{place.city}</Text>
-        <Text fontSize='xs' color={mutedColor}>{place.country}</Text>
-      </VStack>
-      <Text ml='auto' fontSize='lg'>✈️</Text>
-    </HStack>
-  )
-}
-
 function TravelTab(): React.ReactElement {
-  const visited = places.filter(p => p.visited)
-  const wishlist = places.filter(p => !p.visited)
+  const cities = places.filter(p => p.type === 'city')
+  const parks = places.filter(p => p.type === 'national-park')
 
   return (
     <VStack width='full' spacing={12} align='start'>
       <Box width='full'>
-        <SectionHeading>Stamps Collected</SectionHeading>
+        <SectionHeading>Cities</SectionHeading>
         <SimpleGrid columns={{ base: 2, sm: 3, md: 4 }} spacing={4}>
-          {visited.map(place => <PassportStamp key={place.id} place={place} />)}
+          {cities.map(place => <PassportStamp key={place.id} place={place} />)}
         </SimpleGrid>
       </Box>
       <Box width='full'>
-        <SectionHeading>On the List</SectionHeading>
-        <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={3}>
-          {wishlist.map(place => <WishlistItem key={place.id} place={place} />)}
+        <SectionHeading>National Parks</SectionHeading>
+        <SimpleGrid columns={{ base: 2, sm: 3, md: 4 }} spacing={4}>
+          {parks.map(place => <PassportStamp key={place.id} place={place} />)}
         </SimpleGrid>
       </Box>
     </VStack>
