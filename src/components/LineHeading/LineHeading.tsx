@@ -1,19 +1,19 @@
-import { Heading, HeadingProps, useColorModeValue } from '@chakra-ui/react'
+import { Heading, HeadingProps } from '@chakra-ui/react'
 import React from 'react'
 
 const LineHeading = ({ children, ...props }: HeadingProps): JSX.Element => (
   <Heading
     position='relative'
-    _before={{
+    pb={3}
+    _after={{
       content: `''`,
-      position: `absolute`,
-      bottom: 1,
-      left: 0,
-      height: `30%`,
-      width: `100%`,
-      bgColor: useColorModeValue(`brand.200`, `brand.500`),
-      opacity: useColorModeValue(1, 0.5),
-      zIndex: -1,
+      position: 'absolute',
+      bottom: 0,
+      left: '50%',
+      transform: 'translateX(-50%)',
+      height: '2px',
+      width: '40px',
+      bg: 'brand.500',
     }}
     {...props}
   >
