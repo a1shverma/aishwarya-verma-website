@@ -47,7 +47,7 @@ const Footer = (): JSX.Element => {
         align='center'
         justify='space-between'
         flexWrap='wrap'
-        gap={4}
+        gap={{ base: 3, md: 4 }}
       >
         {/* ── Spotify ── */}
         <ChakraLink href={href} isExternal _hover={{ textDecoration: 'none' }}>
@@ -60,6 +60,7 @@ const Footer = (): JSX.Element => {
             borderRadius='full'
             bg={cardBg}
             transition='all 0.2s'
+            maxW={{ base: '220px', sm: '300px', md: 'none' }}
             _hover={{ borderColor: '#1DB954', boxShadow: '0 0 0 2px rgba(29,185,84,0.15)' }}
           >
             <Icon as={FaSpotify} color='#1DB954' boxSize='15px' flexShrink={0} />
@@ -70,7 +71,7 @@ const Footer = (): JSX.Element => {
               />
             )}
 
-            <Text fontSize='sm' fontWeight='medium' color={textColor} isTruncated maxW={{ base: '160px', md: '260px' }}>
+            <Text fontSize='sm' fontWeight='medium' color={textColor} isTruncated maxW={{ base: '140px', sm: '200px', md: '260px' }}>
               {nowPlaying?.name
                 ? <>{nowPlaying.name} <Box as='span' color={mutedColor} fontWeight='normal'>— {nowPlaying.artist}</Box></>
                 : <Box as='span' color={mutedColor}>{error ? 'Spotify unavailable' : 'Not playing'}</Box>

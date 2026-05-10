@@ -29,7 +29,8 @@ export default function Home(): React.ReactElement {
         mx='auto'
         px={{ base: 6, md: 10, xl: 16 }}
         pt={{ base: 32, md: 40 }}
-        pb={0}
+        pb={{ base: 16, md: 20 }}
+        overflowX='hidden'
       >
         {/* ── Hero ─────────────────────────────────────────────────────────── */}
         <Flex
@@ -100,7 +101,7 @@ export default function Home(): React.ReactElement {
             </Text>
 
             {/* Nav links */}
-            <HStack spacing={8}>
+            <HStack spacing={{ base: 5, sm: 8 }} flexWrap='wrap'>
               {[
                 { label: 'Projects', href: '/projects' },
                 { label: 'Writing', href: '/blog' },
@@ -125,8 +126,9 @@ export default function Home(): React.ReactElement {
 
           {/* Right — photo */}
           <Box position='relative' flexShrink={0} alignSelf={{ base: 'center', lg: 'center' }}>
-            {/* Red accent frame behind photo */}
+            {/* Red accent frame behind photo — hidden on mobile to avoid horizontal scroll */}
             <Box
+              display={{ base: 'none', md: 'block' }}
               position='absolute'
               top='16px'
               right='-16px'
