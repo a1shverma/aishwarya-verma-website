@@ -35,6 +35,10 @@ const links = [
     link: '/blog',
   },
   {
+    name: 'Books',
+    link: '/books',
+  },
+  {
     name: 'Experiences',
     link: '/wip',
   }
