@@ -5,7 +5,7 @@ export interface Place {
   emoji?: string
   visited: boolean
   highlight?: string
-  image?: string // path to image e.g. './static/images/travel/nyc.jpg'
+  images?: string[]
 }
 
 export const places: Place[] = [
@@ -16,6 +16,11 @@ export const places: Place[] = [
     emoji: '🗽',
     visited: true,
     highlight: 'Home.',
+    images: [
+      'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800&q=80',
+      'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&q=80',
+      'https://images.unsplash.com/photo-1522083165195-3424ed129620?w=800&q=80',
+    ],
   },
   {
     id: 'atlanta',

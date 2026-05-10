@@ -12,7 +12,8 @@ export interface Movie {
   year?: number
   status: MovieStatus
   genre?: string
-  rating?: number // out of 5
+  rating?: number
+  cover?: string
   thoughts?: string
   dialogues?: Dialogue[]
 }
@@ -26,6 +27,7 @@ export const movies: Movie[] = [
     status: 'watched',
     genre: 'Sci-fi',
     rating: 5,
+    cover: 'https://image.tmdb.org/t/p/w500/x2FJsf1ElAgr63Y3PNPtJrcmpoe.jpg',
     thoughts: 'One of the most beautiful films ever made. Language, time, and grief — all at once.',
     dialogues: [
       { character: 'Louise Banks', text: 'If you could see your whole life from start to finish, would you change things?' },
@@ -40,6 +42,7 @@ export const movies: Movie[] = [
     status: 'watched',
     genre: 'Thriller',
     rating: 5,
+    cover: 'https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg',
     thoughts: 'A masterclass in tension and class commentary.',
     dialogues: [
       { character: 'Ki-woo', text: 'You know what kind of plan never fails? No plan. No plan at all.' },
@@ -53,6 +56,7 @@ export const movies: Movie[] = [
     status: 'watched',
     genre: 'Sci-fi / Comedy',
     rating: 5,
+    cover: 'https://image.tmdb.org/t/p/w500/w3LxiVYdWWRvEVdn5RYq6jIqkb1.jpg',
     dialogues: [
       { character: 'Waymond Wang', text: 'In another life, I would have really liked just doing laundry and taxes with you.' },
     ],
@@ -65,6 +69,7 @@ export const movies: Movie[] = [
     status: 'watched',
     genre: 'Biography / Drama',
     rating: 4,
+    cover: 'https://image.tmdb.org/t/p/w500/8Gxv8giaFIuDGiDjfEAfmLnA7kE.jpg',
   },
   {
     id: 'past-lives',
@@ -73,6 +78,7 @@ export const movies: Movie[] = [
     year: 2023,
     status: 'want-to-watch',
     genre: 'Drama / Romance',
+    cover: 'https://image.tmdb.org/t/p/w500/k3waqVXCD5d40EFzpXFLs4lSMsR.jpg',
   },
   {
     id: 'dune-2',
@@ -81,6 +87,7 @@ export const movies: Movie[] = [
     year: 2024,
     status: 'want-to-watch',
     genre: 'Sci-fi',
+    cover: 'https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg',
   },
 ]
 

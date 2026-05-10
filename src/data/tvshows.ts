@@ -10,7 +10,8 @@ export interface TVShow {
   title: string
   status: ShowStatus
   genre?: string
-  rating?: number // out of 5
+  rating?: number
+  cover?: string
   thoughts?: string
   dialogues?: Dialogue[]
 }
@@ -22,10 +23,11 @@ export const tvshows: TVShow[] = [
     status: 'watched',
     genre: 'Drama',
     rating: 5,
+    cover: 'https://image.tmdb.org/t/p/w500/e2X8xeKMB9BFuRJLQeM5LJkbJHZ.jpg',
     thoughts: 'The best TV show ever made. Every character is a masterpiece.',
     dialogues: [
-      { character: 'Logan Roy', text: 'I love you, but you are not serious people.' },
-      { character: 'Tom Wambsgans', text: 'I wonder if the sad I\'d be without you is less than the sad I am with you.' },
+      { character: 'Logan Roy', text: "I love you, but you are not serious people." },
+      { character: 'Tom Wambsgans', text: "I wonder if the sad I'd be without you is less than the sad I am with you." },
     ],
   },
   {
@@ -34,6 +36,7 @@ export const tvshows: TVShow[] = [
     status: 'watched',
     genre: 'Drama / Comedy',
     rating: 5,
+    cover: 'https://image.tmdb.org/t/p/w500/sZBEyJJkxYLEcTcDTCWTH0fCTNB.jpg',
     thoughts: 'Chaotic, beautiful, and devastating. Episode 7 of Season 2 is television history.',
     dialogues: [
       { character: 'Carmy', text: 'Every second matters.' },
@@ -45,6 +48,7 @@ export const tvshows: TVShow[] = [
     status: 'watched',
     genre: 'Dark Comedy / Drama',
     rating: 5,
+    cover: 'https://image.tmdb.org/t/p/w500/pI4eiEZJlk1wQqAzSHoLdN7nFQa.jpg',
   },
   {
     id: 'severance',
@@ -52,6 +56,7 @@ export const tvshows: TVShow[] = [
     status: 'watching',
     genre: 'Sci-fi / Thriller',
     rating: 5,
+    cover: 'https://image.tmdb.org/t/p/w500/HkZSFqQpPzBDQhFUFMNEPvLNQmw.jpg',
     thoughts: 'Nothing has made me think this hard about work-life balance.',
     dialogues: [
       { character: 'Mark S.', text: 'The work is mysterious and important.' },
@@ -63,18 +68,21 @@ export const tvshows: TVShow[] = [
     status: 'watched',
     genre: 'Sci-fi / Anthology',
     rating: 4,
+    cover: 'https://image.tmdb.org/t/p/w500/7PRddO7z7mcPi21nZjkhyCFPcUc.jpg',
   },
   {
     id: 'shrinking',
     title: 'Shrinking',
     status: 'want-to-watch',
     genre: 'Comedy / Drama',
+    cover: 'https://image.tmdb.org/t/p/w500/lke7MedXFdKAYH1Y5nNFzpDYdVu.jpg',
   },
   {
     id: 'slow-horses',
     title: 'Slow Horses',
     status: 'want-to-watch',
     genre: 'Thriller / Spy',
+    cover: 'https://image.tmdb.org/t/p/w500/3bwS7jzFgv3LKBFXH16emrC1Mdb.jpg',
   },
 ]
 
