@@ -13,9 +13,9 @@ import { useQuery } from 'react-query'
 
 const Footer = (): JSX.Element => {
   const borderColor = useColorModeValue('gray.200', 'gray.800')
-  const mutedColor = useColorModeValue('gray.400', 'gray.600')
-  const textColor = useColorModeValue('gray.700', 'gray.300')
-  const iconColor = useColorModeValue('gray.400', 'gray.500')
+  const mutedColor = useColorModeValue('gray.500', 'gray.400')
+  const textColor = useColorModeValue('gray.800', 'gray.100')
+  const iconColor = useColorModeValue('gray.500', 'gray.400')
   const iconHoverColor = useColorModeValue('brand.500', 'brand.400')
   const spotifyCardBorder = useColorModeValue('gray.200', 'gray.700')
   const spotifyCardBg = useColorModeValue('gray.50', 'gray.900')
