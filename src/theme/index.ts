@@ -13,33 +13,33 @@ const theme = extendTheme({
   },
 
   colors: {
-    // ── Hot pink accent ───────────────────────────────────────────────────────
+    // ── Electric violet accent ─────────────────────────────────────────────────
     brand: {
-      primary: '#FF2D6B',
-      50:  '#FFF0F5',
-      100: '#FFD6E5',
-      200: '#FFB3CC',
-      300: '#FF85AA',
-      400: '#FF4D80',
-      500: '#FF2D6B',
-      600: '#E01557',
-      700: '#B30D43',
-      800: '#800830',
-      900: '#4D031D',
+      primary: '#8B5CF6',
+      50:  '#F3F0FF',
+      100: '#E4DFFE',
+      200: '#C8BCFD',
+      300: '#A98EFB',
+      400: '#8B5CF6',
+      500: '#7C3AED',
+      600: '#6D28D9',
+      700: '#5B21B6',
+      800: '#4C1D95',
+      900: '#2E1065',
     },
 
-    // ── Warm gray scale (drives all dark surfaces) ────────────────────────────
+    // ── Cool navy-dark gray scale ──────────────────────────────────────────────
     gray: {
-      50:  '#F5EEE8',   // cream — used for light-mode bg and dark-mode primary text
-      100: '#E8DDD5',
-      200: '#CBBFB8',
-      300: '#AFA090',
-      400: '#8A7D75',
-      500: '#655D58',
-      600: '#423B38',
-      700: '#2A2220',   // borders in dark
-      800: '#1A1412',   // card surfaces in dark
-      900: '#0C0A0B',   // main bg in dark
+      50:  '#F0F2FF',
+      100: '#DDE0FF',
+      200: '#B8BEFF',
+      300: '#8A92E8',
+      400: '#6068C8',
+      500: '#404898',
+      600: '#2C3270',
+      700: '#1C2050',   // borders in dark
+      800: '#10132A',   // card surfaces in dark
+      900: '#07080F',   // main bg in dark
     },
   },
 
@@ -85,8 +85,8 @@ const theme = extendTheme({
   styles: {
     global: (props: any) => ({
       body: {
-        bg: mode('#FAFAF8', '#0C0A0B')(props),
-        color: mode('gray.900', 'gray.50')(props),
+        bg: mode('#FAFBFF', '#07080F')(props),
+        color: mode('gray.900', '#E8EEFF')(props),
       },
       '*': {
         _selection: {
