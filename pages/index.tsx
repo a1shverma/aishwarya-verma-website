@@ -83,7 +83,9 @@ export default function Home(): React.ReactElement {
                 fontSize='l'
                 mt={2}
               >
-                A Data Engineering & Analytics Consultant at <b>Aimpoint Digital</b> working on tools and platforms <b>that build and optimize data workflows </b>. A <b>Product</b> and <b>Data</b> enthusiast looking forward to build a career around it. Best described as a supporter of <b>Women in Tech</b>, an active <b>Volunteer</b>, a <b>Formula One</b> fanatic, die-hard <b>Foodie</b>, <b>Marvel-head </b>and a noob <b>Gamer</b>.
+                There&apos;s a version of AI that actually works in the real world — I build that. <b>GenAI pipelines</b>, <b>RAG systems</b>, <b>LLM applications</b> wired into production data infrastructure.<br/><br/>
+                Always chasing side quests — the next product idea, the problem worth solving, the business hiding in plain sight.<br/><br/>
+                When I&apos;m not building: novels, galleries, new cities, good food, and the occasional philosophical rabbit hole. Loud advocate for <b>Women in Tech &amp; Leadership</b>.
                 <br/><br/>Here, you can find my{' '}
                 <Link href='/projects' passHref>
                   <ChakraLink>projects</ChakraLink>
