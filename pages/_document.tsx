@@ -18,10 +18,6 @@ export default class MyDocument extends Document {
             href='https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&display=swap'
             rel='stylesheet'
           />
-          <link
-            href='https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap'
-            rel='stylesheet'
-          />
         </Head>
         <body id={'de_body'}>
           <ColorModeScript />
