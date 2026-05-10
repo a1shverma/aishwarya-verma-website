@@ -34,7 +34,7 @@ export default function Home(): React.ReactElement {
         {/* ── Hero ─────────────────────────────────────────────────────────── */}
         <Flex
           direction={{ base: 'column-reverse', lg: 'row' }}
-          align={{ base: 'flex-start', lg: 'flex-end' }}
+          align={{ base: 'flex-start', lg: 'center' }}
           justify='space-between'
           gap={{ base: 12, lg: 16 }}
         >
