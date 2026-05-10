@@ -19,6 +19,14 @@ import { useEffect } from 'react';
 
 const links = [
   {
+    name: 'Interests',
+    link: '/interests',
+  },
+  {
+    name: 'Blog',
+    link: '/blog',
+  },
+  {
     name: `Projects`,
     link: `/projects`,
   },
@@ -26,22 +34,6 @@ const links = [
     name: `Tools`,
     link: `/tools`,
   },
-  {
-    name: `Certificates`,
-    link: `/certificates`,
-  },
-  {
-    name: 'Blog',
-    link: '/blog',
-  },
-  {
-    name: 'Interests',
-    link: '/interests',
-  },
-  {
-    name: 'Experiences',
-    link: '/wip',
-  }
   // {
   //       name: `Music`,
   //       link: `/spotify`,
