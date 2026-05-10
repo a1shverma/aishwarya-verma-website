@@ -426,9 +426,9 @@ function TravelTab(): React.ReactElement {
 // ─── Food ─────────────────────────────────────────────────────────────────────
 
 function FoodTab(): React.ReactElement {
-  const cardBg = useColorModeValue('white', 'gray.800')
-  const border = useColorModeValue('gray.200', 'gray.700')
-  const mutedColor = useColorModeValue('gray.600', 'gray.300')
+  const border = useColorModeValue('gray.100', 'gray.700')
+  const hoverBg = useColorModeValue('gray.50', 'gray.800')
+  const mutedColor = useColorModeValue('gray.500', 'gray.400')
   const selectBg = useColorModeValue('white', 'gray.800')
 
   const cities = ['All', ...Array.from(new Set(restaurants.map(r => r.city))).sort()]
@@ -444,8 +444,8 @@ function FoodTab(): React.ReactElement {
     })
 
   return (
-    <VStack width='full' spacing={8} align='start'>
-      <HStack spacing={4} flexWrap='wrap' width='full'>
+    <VStack width='full' spacing={6} align='start'>
+      <HStack spacing={3} flexWrap='wrap'>
         <Select size='sm' width='auto' bg={selectBg} borderRadius='lg' value={cityFilter} onChange={e => setCityFilter(e.target.value)}>
           {cities.map(c => <option key={c} value={c}>{c}</option>)}
         </Select>
@@ -456,32 +456,41 @@ function FoodTab(): React.ReactElement {
         </Select>
         <Text fontSize='sm' color={mutedColor}>{filtered.length} restaurant{filtered.length !== 1 ? 's' : ''}</Text>
       </HStack>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5} width='full'>
-        {filtered.map(r => (
-          <Box key={r.id} bg={cardBg} border='1px solid' borderColor={border} borderRadius='xl' p={5} transition='all 0.2s' _hover={{ shadow: 'md', borderColor: 'brand.400' }}>
-            <VStack align='start' spacing={2}>
-              <HStack justify='space-between' width='full' flexWrap='wrap' gap={2}>
-                <Link href={r.mapsLink} isExternal>
-                  <HStack spacing={1}>
-                    <Text fontWeight='bold' fontSize='md'>{r.name}</Text>
-                    <Icon as={FaExternalLinkAlt} boxSize='10px' color='brand.400' />
-                  </HStack>
-                </Link>
-                <Badge variant='subtle' colorScheme='brand' borderRadius='full' px={2}>{r.city}</Badge>
-              </HStack>
-              {r.cuisine && <Tag size='sm' variant='subtle' colorScheme='orange' borderRadius='full'>{r.cuisine}</Tag>}
-              <StarRating rating={r.rating} />
-              <VStack align='start' spacing={1} pt={1}>
-                <Text fontSize='xs' fontWeight='semibold' color={mutedColor} textTransform='uppercase' letterSpacing='wide'>Had</Text>
-                <HStack flexWrap='wrap' gap={1}>
-                  {r.dishes.map((dish, i) => <Tag key={i} size='sm' variant='outline' borderRadius='full'>{dish}</Tag>)}
+
+      <VStack width='full' spacing={0} align='start'>
+        {filtered.map((r, i) => (
+          <Box
+            key={r.id}
+            width='full'
+            borderTop='1px solid'
+            borderColor={border}
+            borderBottom={i === filtered.length - 1 ? '1px solid' : 'none'}
+            borderBottomColor={border}
+            py={4}
+            px={2}
+            transition='background 0.15s'
+            _hover={{ bg: hoverBg }}
+          >
+            <Flex align='start' justify='space-between' gap={4} flexWrap='wrap'>
+              <VStack align='start' spacing={1} flex={1} minW={0}>
+                <HStack spacing={2} flexWrap='wrap'>
+                  <Link href={r.mapsLink} isExternal>
+                    <HStack spacing={1}>
+                      <Text fontWeight='semibold' fontSize='md'>{r.name}</Text>
+                      <Icon as={FaExternalLinkAlt} boxSize='9px' color='brand.400' />
+                    </HStack>
+                  </Link>
+                  <Badge variant='subtle' colorScheme='brand' borderRadius='full' px={2} fontSize='xs'>{r.city}</Badge>
+                  {r.cuisine && <Badge variant='subtle' colorScheme='orange' borderRadius='full' px={2} fontSize='xs'>{r.cuisine}</Badge>}
                 </HStack>
+                <Text fontSize='sm' color={mutedColor}>{r.dishes.join(' · ')}</Text>
+                {r.notes && <Text fontSize='xs' color={mutedColor} fontStyle='italic'>{r.notes}</Text>}
               </VStack>
-              {r.notes && <Text fontSize='sm' color={mutedColor} fontStyle='italic' pt={1}>{r.notes}</Text>}
-            </VStack>
+              <StarRating rating={r.rating} />
+            </Flex>
           </Box>
         ))}
-      </SimpleGrid>
+      </VStack>
     </VStack>
   )
 }
