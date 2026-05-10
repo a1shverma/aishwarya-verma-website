@@ -4,7 +4,8 @@ export interface Place {
   country: string
   emoji?: string
   visited: boolean
-  highlight?: string // one line memory or thing you loved
+  highlight?: string
+  image?: string // path to image e.g. './static/images/travel/nyc.jpg'
 }
 
 export const places: Place[] = [

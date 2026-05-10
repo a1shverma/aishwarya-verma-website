@@ -1,5 +1,10 @@
 export type MovieStatus = 'watched' | 'watching' | 'want-to-watch'
 
+export interface Dialogue {
+  text: string
+  character?: string
+}
+
 export interface Movie {
   id: string
   title: string
@@ -9,6 +14,7 @@ export interface Movie {
   genre?: string
   rating?: number // out of 5
   thoughts?: string
+  dialogues?: Dialogue[]
 }
 
 export const movies: Movie[] = [
@@ -21,6 +27,10 @@ export const movies: Movie[] = [
     genre: 'Sci-fi',
     rating: 5,
     thoughts: 'One of the most beautiful films ever made. Language, time, and grief — all at once.',
+    dialogues: [
+      { character: 'Louise Banks', text: 'If you could see your whole life from start to finish, would you change things?' },
+      { character: 'Ian Donnelly', text: 'There are days that define your story beyond your life.' },
+    ],
   },
   {
     id: 'parasite',
@@ -31,6 +41,9 @@ export const movies: Movie[] = [
     genre: 'Thriller',
     rating: 5,
     thoughts: 'A masterclass in tension and class commentary.',
+    dialogues: [
+      { character: 'Ki-woo', text: 'You know what kind of plan never fails? No plan. No plan at all.' },
+    ],
   },
   {
     id: 'everything-everywhere',
@@ -40,6 +53,9 @@ export const movies: Movie[] = [
     status: 'watched',
     genre: 'Sci-fi / Comedy',
     rating: 5,
+    dialogues: [
+      { character: 'Waymond Wang', text: 'In another life, I would have really liked just doing laundry and taxes with you.' },
+    ],
   },
   {
     id: 'oppenheimer',
