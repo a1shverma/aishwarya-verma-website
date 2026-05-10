@@ -13,33 +13,40 @@ const theme = extendTheme({
   },
 
   colors: {
-    // ── Electric violet accent ─────────────────────────────────────────────────
+    // ── Deep crimson red ──────────────────────────────────────────────────────
     brand: {
-      primary: '#8B5CF6',
-      50:  '#F3F0FF',
-      100: '#E4DFFE',
-      200: '#C8BCFD',
-      300: '#A98EFB',
-      400: '#8B5CF6',
-      500: '#7C3AED',
-      600: '#6D28D9',
-      700: '#5B21B6',
-      800: '#4C1D95',
-      900: '#2E1065',
+      primary: '#C0392B',
+      50:  '#FFF0EE',
+      100: '#FFD5D0',
+      200: '#FFB0A8',
+      300: '#F07870',
+      400: '#E04840',
+      500: '#C0392B',
+      600: '#A02D22',
+      700: '#80221A',
+      800: '#5C1712',
+      900: '#380D0A',
     },
 
-    // ── Cool navy-dark gray scale ──────────────────────────────────────────────
+    // ── Gold accent ────────────────────────────────────────────────────────────
+    gold: {
+      300: '#F0D080',
+      400: '#D4AF37',
+      500: '#B8960C',
+    },
+
+    // ── Warm dark surfaces ────────────────────────────────────────────────────
     gray: {
-      50:  '#F0F2FF',
-      100: '#DDE0FF',
-      200: '#B8BEFF',
-      300: '#8A92E8',
-      400: '#6068C8',
-      500: '#404898',
-      600: '#2C3270',
-      700: '#1C2050',   // borders in dark
-      800: '#10132A',   // card surfaces in dark
-      900: '#07080F',   // main bg in dark
+      50:  '#F5EEE8',   // cream — primary text on dark
+      100: '#E8DDD5',
+      200: '#CBBFB8',
+      300: '#AFA090',
+      400: '#8A7D75',
+      500: '#655D58',
+      600: '#423B38',
+      700: '#2A1A1A',   // borders
+      800: '#160D0D',   // card surfaces
+      900: '#0A0808',   // main bg
     },
   },
 
@@ -85,8 +92,8 @@ const theme = extendTheme({
   styles: {
     global: (props: any) => ({
       body: {
-        bg: mode('#FAFBFF', '#07080F')(props),
-        color: mode('gray.900', '#E8EEFF')(props),
+        bg: mode('#FAF8F5', '#0A0808')(props),
+        color: mode('gray.900', 'gray.50')(props),
       },
       '*': {
         _selection: {
