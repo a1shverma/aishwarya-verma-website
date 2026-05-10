@@ -141,7 +141,6 @@ export default function Home(): React.ReactElement {
             <Skeleton
               isLoaded={imageLoad}
               w={{ base: '220px', md: '280px', lg: '300px' }}
-              h={{ base: '290px', md: '370px', lg: '400px' }}
               borderRadius='2xl'
               position='relative'
               zIndex={1}
@@ -150,9 +149,7 @@ export default function Home(): React.ReactElement {
                 src='./static/images/profile.jpg'
                 alt='Aishwarya Verma'
                 w={{ base: '220px', md: '280px', lg: '300px' }}
-                h={{ base: '290px', md: '370px', lg: '400px' }}
-                objectFit='cover'
-                objectPosition='top'
+                h='auto'
                 borderRadius='2xl'
                 filter='grayscale(15%)'
                 onLoad={() => setImageLoad(true)}
