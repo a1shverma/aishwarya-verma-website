@@ -114,15 +114,15 @@ function Nav(): JSX.Element {
                 <AnimatedTitle />
               ) : (
                 <ChakraLink
-                  fontSize='xl'
-                  fontWeight='900'
-                  letterSpacing='-0.04em'
-                  color={colorMode === 'light' ? 'gray.900' : 'white'}
+                  fontFamily="'Great Vibes', cursive"
+                  fontSize='2xl'
+                  color={colorMode === 'light' ? 'gray.800' : 'gray.100'}
                   _hover={{ color: 'brand.500', textDecoration: 'none' }}
                   transition='color 0.2s'
                   margin='auto'
+                  lineHeight={1}
                 >
-                  AV.
+                  Aishwarya Verma
                 </ChakraLink>
               )}
             </Link>
@@ -139,14 +139,14 @@ export default Nav;
 
 const AnimatedTitle = () => (
   <ChakraLink
-    color={useColorModeValue('gray.900', 'white')}
-    fontSize='xl'
-    fontWeight='900'
-    letterSpacing='-0.04em'
+    fontFamily="'Great Vibes', cursive"
+    fontSize='2xl'
+    color={useColorModeValue('gray.800', 'gray.100')}
     _hover={{ color: 'brand.500', textDecoration: 'none' }}
     transition='color 0.2s'
+    lineHeight={1}
   >
-    AV.
+    Aishwarya Verma
   </ChakraLink>
 );
 
