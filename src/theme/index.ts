@@ -15,7 +15,9 @@ const theme = extendTheme({
     },
     Heading: {
       baseStyle: {
-        fontFamily: 'Ubuntu',
+        fontFamily: `'Cabinet Grotesk', sans-serif`,
+        fontWeight: '800',
+        letterSpacing: '-0.02em',
       },
     },
     Text: {
