@@ -21,6 +21,7 @@ export interface TimelineEntry {
 export interface MonthData {
   month: string       // 'MAY', 'APRIL', etc.
   year: number
+  images?: string[]   // photos from this month
   entries: TimelineEntry[]
 }
 
@@ -28,6 +29,11 @@ export const timeline: MonthData[] = [
   {
     month: 'MAY',
     year: 2026,
+    images: [
+      'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&q=80',
+      'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&q=80',
+      'https://images.unsplash.com/photo-1522083165195-3424ed129620?w=600&q=80',
+    ],
     entries: [
       {
         type: 'book',
@@ -69,6 +75,10 @@ export const timeline: MonthData[] = [
   {
     month: 'APRIL',
     year: 2026,
+    images: [
+      'https://images.unsplash.com/photo-1522093007474-d86e9bf7ba6f?w=600&q=80',
+      'https://images.unsplash.com/photo-1617581629397-a72507c3de9e?w=600&q=80',
+    ],
     entries: [
       {
         type: 'show',

@@ -119,18 +119,62 @@ function EntryCard({ entry }: { entry: TimelineEntry }): React.ReactElement {
   return inner
 }
 
+// ─── Photo strip ─────────────────────────────────────────────────────────────
+
+function PhotoStrip({ images }: { images: string[] }): React.ReactElement {
+  return (
+    <Flex
+      gap={3}
+      overflowX='auto'
+      pb={2}
+      mb={6}
+      sx={{
+        '&::-webkit-scrollbar': { height: '4px' },
+        '&::-webkit-scrollbar-track': { bg: 'transparent' },
+        '&::-webkit-scrollbar-thumb': { bg: 'gray.300', borderRadius: 'full' },
+      }}
+    >
+      {images.map((src, i) => (
+        <Box
+          key={i}
+          flexShrink={0}
+          w={{ base: '160px', md: '200px' }}
+          h={{ base: '110px', md: '140px' }}
+          borderRadius='xl'
+          overflow='hidden'
+          transform={`rotate(${i % 2 === 0 ? '-1.2' : '1.2'}deg)`}
+          transition='transform 0.2s'
+          _hover={{ transform: 'rotate(0deg) scale(1.03)' }}
+          boxShadow='md'
+        >
+          <Box
+            as='img'
+            src={src}
+            alt={`photo-${i}`}
+            w='full'
+            h='full'
+            objectFit='cover'
+          />
+        </Box>
+      ))}
+    </Flex>
+  )
+}
+
 // ─── Month section ────────────────────────────────────────────────────────────
 
 function MonthSection({
   month,
   year,
   entries,
+  images,
   isFirst,
   isLast,
 }: {
   month: string
   year: number
   entries: TimelineEntry[]
+  images?: string[]
   isFirst: boolean
   isLast: boolean
 }): React.ReactElement {
@@ -196,6 +240,9 @@ function MonthSection({
             </Badge>
           )}
         </HStack>
+
+        {/* Photo strip */}
+        {images && images.length > 0 && <PhotoStrip images={images} />}
 
         {/* Cards grid */}
         <Box
