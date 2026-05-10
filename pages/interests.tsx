@@ -24,7 +24,6 @@ import {
 } from '@chakra-ui/react'
 import { NextSeo } from 'next-seo'
 import { FaExternalLinkAlt } from 'react-icons/fa'
-import LineHeading from '@/components/LineHeading'
 import books, { Book, BookStatus } from '@/data/books'
 import movies, { Movie, MovieStatus } from '@/data/movies'
 import tvshows, { TVShow, ShowStatus } from '@/data/tvshows'
@@ -500,24 +499,56 @@ function FoodTab(): React.ReactElement {
 const TABS = ['Books', 'Travel', 'Food', 'Movies', 'TV Shows']
 
 export default function Interests(): React.ReactElement {
-  const tabColor = useColorModeValue('gray.600', 'gray.300')
-  const selectedTabColor = useColorModeValue('brand.600', 'brand.300')
-  const selectedTabBg = useColorModeValue('brand.50', 'whiteAlpha.100')
+  const textColor = useColorModeValue('gray.800', 'gray.50')
+  const mutedColor = useColorModeValue('gray.500', 'gray.400')
+  const tabColor = useColorModeValue('gray.500', 'gray.500')
+  const selectedTabColor = useColorModeValue('brand.500', 'brand.400')
+  const tabBorderColor = useColorModeValue('gray.200', 'gray.800')
 
   return (
     <>
       <NextSeo title='Interests' />
-      <Flex direction='column' alignItems='center' width='full' minH='100vh' mx='auto' maxW='5xl' px={4} py='28'>
-        <LineHeading fontSize={{ base: '3xl', sm: '4xl', md: '5xl', lg: '6xl' }} textAlign='center'>
-          Interests
-        </LineHeading>
-        <Text mt={3} textAlign='center' maxW='lg'>
-          A peek into the things that keep me curious outside of work.
-        </Text>
-        <Tabs width='full' mt={12} isLazy colorScheme='brand' variant='soft-rounded'>
-          <TabList flexWrap='wrap' gap={2} justifyContent={{ base: 'center', md: 'flex-start' }}>
+      <Box maxW='7xl' mx='auto' px={{ base: 6, md: 10, xl: 16 }} pt={{ base: 32, md: 40 }} pb={20} minH='100vh'>
+        {/* ── Header ── */}
+        <Box mb={12}>
+          <Box h='2px' w='40px' bg='brand.500' mb={6} />
+          <Text
+            fontSize={{ base: '5xl', md: '7xl', lg: '8xl' }}
+            fontWeight='900'
+            letterSpacing='-0.04em'
+            lineHeight={0.88}
+            color={textColor}
+            mb={4}
+          >
+            INTERESTS.
+          </Text>
+          <Text fontSize='sm' color={mutedColor} maxW='md' mt={4} lineHeight='1.8'>
+            The things that keep me curious outside of work.
+          </Text>
+        </Box>
+
+        <Tabs width='full' isLazy colorScheme='brand' variant='line'>
+          <TabList
+            borderBottomColor={tabBorderColor}
+            overflowX='auto'
+            gap={2}
+            sx={{ scrollbarWidth: 'none', '&::-webkit-scrollbar': { display: 'none' } }}
+          >
             {TABS.map(tab => (
-              <Tab key={tab} fontSize='sm' fontWeight='semibold' color={tabColor} _selected={{ color: selectedTabColor, bg: selectedTabBg }}>
+              <Tab
+                key={tab}
+                fontSize='sm'
+                fontWeight='bold'
+                textTransform='uppercase'
+                letterSpacing='0.1em'
+                color={tabColor}
+                pb={3}
+                px={1}
+                mr={6}
+                whiteSpace='nowrap'
+                _selected={{ color: selectedTabColor, borderColor: 'brand.500' }}
+                _hover={{ color: selectedTabColor }}
+              >
                 {tab}
               </Tab>
             ))}
@@ -530,7 +561,7 @@ export default function Interests(): React.ReactElement {
             <TabPanel px={0}><TVShowsTab /></TabPanel>
           </TabPanels>
         </Tabs>
-      </Flex>
+      </Box>
     </>
   )
 }

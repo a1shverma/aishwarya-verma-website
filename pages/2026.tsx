@@ -181,6 +181,7 @@ function MonthSection({
   const lineColor = useColorModeValue('gray.200', 'gray.700')
   const monthColor = useColorModeValue('gray.800', 'white')
   const mutedColor = useColorModeValue('gray.400', 'gray.500')
+  const watermarkColor = useColorModeValue('rgba(0,0,0,0.04)', 'rgba(255,255,255,0.03)')
 
   // Split entries: quotes go full width, rest go in grid
   const quotes = entries.filter(e => e.type === 'quote')
@@ -198,20 +199,20 @@ function MonthSection({
           w='12px'
           h='12px'
           borderRadius='full'
-          bg={isFirst ? 'brand.400' : lineColor}
+          bg={isFirst ? 'brand.500' : 'transparent'}
           border='2px solid'
-          borderColor={isFirst ? 'brand.400' : lineColor}
+          borderColor={isFirst ? 'brand.500' : lineColor}
           flexShrink={0}
           position='relative'
         >
           {isFirst && (
             <Box
               position='absolute'
-              inset='-4px'
+              inset='-5px'
               borderRadius='full'
-              border='2px solid'
-              borderColor='brand.300'
-              opacity={0.4}
+              border='1px solid'
+              borderColor='brand.500'
+              opacity={0.3}
             />
           )}
         </Box>
@@ -221,34 +222,67 @@ function MonthSection({
       </Flex>
 
       {/* ── Month content ── */}
-      <Box flex={1} pb={16} pt={1}>
+      <Box flex={1} pb={20} pt={1} position='relative' overflow='hidden'>
+        {/* Watermark month name */}
+        <Text
+          position='absolute'
+          top='-10px'
+          right='-10px'
+          fontSize='8xl'
+          fontWeight='900'
+          letterSpacing='-0.06em'
+          lineHeight={1}
+          color={watermarkColor}
+          pointerEvents='none'
+          userSelect='none'
+          zIndex={0}
+          display={{ base: 'none', md: 'block' }}
+        >
+          {month.toUpperCase()}
+        </Text>
+
         {/* Month header */}
-        <HStack mb={6} spacing={3} align='baseline'>
+        <HStack mb={6} spacing={3} align='center' position='relative' zIndex={1}>
+          <Box h='2px' w='20px' bg='brand.500' flexShrink={0} />
           <Text
-            fontSize={{ base: '2xl', md: '4xl' }}
-            fontWeight='black'
-            letterSpacing='tight'
+            fontSize={{ base: '2xl', md: '3xl' }}
+            fontWeight='900'
+            letterSpacing='-0.03em'
             color={monthColor}
             lineHeight={1}
           >
             {month}
           </Text>
-          <Text fontSize='sm' color={mutedColor} fontWeight='medium'>{year}</Text>
+          <Text fontSize='xs' color={mutedColor} fontWeight='bold' letterSpacing='0.1em'>{year}</Text>
           {isFirst && (
-            <Badge colorScheme='brand' borderRadius='full' fontSize='10px' px={2}>
-              Now
+            <Badge
+              colorScheme='brand'
+              borderRadius='full'
+              fontSize='9px'
+              px={2}
+              py={0.5}
+              fontWeight='bold'
+              letterSpacing='0.08em'
+            >
+              NOW
             </Badge>
           )}
         </HStack>
 
         {/* Photo strip */}
-        {images && images.length > 0 && <PhotoStrip images={images} />}
+        {images && images.length > 0 && (
+          <Box position='relative' zIndex={1}>
+            <PhotoStrip images={images} />
+          </Box>
+        )}
 
         {/* Cards grid */}
         <Box
           display='grid'
           gridTemplateColumns={{ base: '1fr', sm: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
           gap={4}
+          position='relative'
+          zIndex={1}
         >
           {rest.map((entry, i) => (
             <Box key={i}>
@@ -259,7 +293,7 @@ function MonthSection({
 
         {/* Quotes — full width, below the grid */}
         {quotes.length > 0 && (
-          <Box mt={4} display='grid' gridTemplateColumns='1fr' gap={4}>
+          <Box mt={4} display='grid' gridTemplateColumns='1fr' gap={4} position='relative' zIndex={1}>
             {quotes.map((entry, i) => (
               <EntryCard key={i} entry={entry} />
             ))}
@@ -273,25 +307,26 @@ function MonthSection({
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function Year2026(): React.ReactElement {
+  const textColor = useColorModeValue('gray.800', 'gray.50')
   const mutedColor = useColorModeValue('gray.500', 'gray.400')
 
   return (
     <>
       <NextSeo title='2026' />
-      <Box width='full' maxW='4xl' mx='auto' px={{ base: 4, md: 8 }} pt='28' pb='20'>
+      <Box width='full' maxW='4xl' mx='auto' px={{ base: 4, md: 8 }} pt={{ base: 32, md: 40 }} pb='20'>
         {/* Header */}
         <Box mb={16}>
+          <Box h='2px' w='40px' bg='brand.500' mb={6} />
           <Text
             fontSize={{ base: '6xl', md: '9xl' }}
-            fontWeight='black'
-            letterSpacing='tighter'
-            lineHeight={1}
-            bgGradient='linear(to-r, brand.400, teal.400)'
-            bgClip='text'
+            fontWeight='900'
+            letterSpacing='-0.04em'
+            lineHeight={0.88}
+            color={textColor}
           >
-            2026
+            2026.
           </Text>
-          <Text fontSize='lg' color={mutedColor} mt={2}>
+          <Text fontSize='sm' color={mutedColor} mt={5} lineHeight='1.8'>
             A running log of the year — month by month.
           </Text>
         </Box>
