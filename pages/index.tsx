@@ -124,7 +124,7 @@ export default function Home(): React.ReactElement {
           </Box>
 
           {/* Right — photo */}
-          <Box position='relative' flexShrink={0} alignSelf={{ base: 'center', lg: 'flex-end' }}>
+          <Box position='relative' flexShrink={0} alignSelf={{ base: 'center', lg: 'center' }}>
             {/* Red accent frame behind photo */}
             <Box
               position='absolute'
