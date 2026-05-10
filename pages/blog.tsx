@@ -31,16 +31,10 @@ function Blog({ posts }: { posts: any }): React.ReactElement {
         frontMatter.title.toLowerCase().includes(filter) &&
         (frontMatter.published || !process.env.VERCEL_ENV)
     )
-
     .sort((a: any, b: any) => {
-      if (sort === 'recent' || sort === 'old') {
-        return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
-      }
+      const diff = new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+      return sort === 'old' ? -diff : diff;
     });
-
-  if (sort === 'old') {
-    filteredBlogPosts.reverse();
-  }
 
   return (
     <Flex direction='column' alignItems='center' width='full' minH='100vh' mx='auto' maxW='5xl'>
