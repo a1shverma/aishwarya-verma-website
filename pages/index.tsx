@@ -8,6 +8,7 @@ import {
   Skeleton,
   Link as ChakraLink,
   useBreakpoint,
+  Text,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import React, { useState } from 'react';
@@ -63,19 +64,18 @@ export default function Home(): React.ReactElement {
               flexGrow={1}
             >
               <Heading
-                bgGradient={`linear(to-r, ${useColorModeValue(
-                  `brand.600`,
-                  `brand.400`
-                )}, ${useColorModeValue(`teal.600`, `teal.400`)}, ${useColorModeValue(
-                  `blue.600`,
-                  `blue.300`
-                )})`}
-                className='moving-grad'
-                bgClip='text'
                 fontSize={{ base: `5xl`, lg: `7xl` }}
+                fontWeight='700'
+                letterSpacing='-0.03em'
+                lineHeight='1.05'
                 textAlign={{ base: `center`, lg: `left` }}
+                color={useColorModeValue(`gray.900`, `gray.50`)}
               >
-                Hi, I&apos;m Aishwarya!
+                Hi, I&apos;m{' '}
+                <chakra.span color={useColorModeValue(`brand.500`, `brand.300`)}>
+                  Aishwarya
+                </chakra.span>
+                .
               </Heading>
               <chakra.p
                 maxW='650px'
