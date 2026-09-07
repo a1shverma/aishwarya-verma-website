@@ -23,43 +23,21 @@ const links = [
     link: `/projects`,
   },
   {
-    name: `Tools`,
-    link: `/tools`,
+    name: `Blog`,
+    link: `/blog`,
   },
   {
     name: `Certificates`,
     link: `/certificates`,
   },
   {
-    name: 'Blog',
-    link: '/blog',
+    name: `Experiences`,
+    link: `/experiences`,
   },
   {
-    name: 'Experiences',
-    link: '/wip',
-  }
-  // {
-  //       name: `Music`,
-  //       link: `/spotify`,
-  // },
-  // {
-  //   type: `dropdown`,
-  //   name: `Other`,
-  //   links: [
-  //     {
-  //       name: `Music`,
-  //       link: `/spotify`,
-  //     },
-  //     {
-  //       name: `Tools`,
-  //       link: `/tools`,
-  //     },
-  //     {
-  //       name: `Links`,
-  //       link: `/links`,
-  //     },
-  //   ],
-  // },
+    name: `Side Quests`,
+    link: `/side-quests`,
+  },
 ];
 
 function Nav(): JSX.Element {
