@@ -79,7 +79,7 @@ function ExperienceCard({ exp }: { exp: Experience }) {
           </Flex>
         </Flex>
         {exp.bullets.length > 0 && (
-          <Box as='ul' mt={3} pl={4} styleType='disc'>
+          <Box as='ul' mt={3} pl={4} listStyleType='disc'>
             {exp.bullets.map((b, i) => (
               <Text as='li' key={i} fontSize='sm' mt={1} color={metaColor}>
                 {b}
