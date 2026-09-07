@@ -96,6 +96,8 @@ export default function Experiences(): React.ReactElement {
   const [filter, setFilter] = useState<Filter>('all');
   const activeBg = useColorModeValue('brand.500', 'brand.300');
   const activeColor = useColorModeValue('white', 'gray.900');
+  const inactiveBorder = useColorModeValue('gray.300', 'gray.600');
+  const inactiveHover = useColorModeValue('gray.100', 'gray.700');
 
   const filters: { label: string; value: Filter }[] = [
     { label: 'All', value: 'all' },
@@ -141,8 +143,8 @@ export default function Experiences(): React.ReactElement {
               bg={filter === f.value ? activeBg : 'transparent'}
               color={filter === f.value ? activeColor : undefined}
               border='1px solid'
-              borderColor={filter === f.value ? activeBg : useColorModeValue('gray.300', 'gray.600')}
-              _hover={{ bg: filter === f.value ? activeBg : useColorModeValue('gray.100', 'gray.700') }}
+              borderColor={filter === f.value ? activeBg : inactiveBorder}
+              _hover={{ bg: filter === f.value ? activeBg : inactiveHover }}
             >
               {f.label}
             </Button>
