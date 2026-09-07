@@ -9,7 +9,7 @@ const info = props => [
   },
   {
     input: 'self.currentLocation',
-    return: '"Atlanta, United States"',
+    return: '"New York City, United States"',
   },
   {
     input: 'self.workExperience',
