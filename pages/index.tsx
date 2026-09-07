@@ -8,7 +8,6 @@ import {
   Skeleton,
   Link as ChakraLink,
   useBreakpoint,
-  Text,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import React, { useState } from 'react';
