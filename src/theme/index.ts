@@ -51,8 +51,9 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: '#0E0B0A',
+        background: 'radial-gradient(ellipse at 15% 45%, rgba(196, 80, 58, 0.10) 0%, transparent 60%), #0E0B0A',
         color: '#E8E3D8',
+        minHeight: '100vh',
       },
       '*': {
         '&::selection': {
