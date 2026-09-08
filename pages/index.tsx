@@ -4,109 +4,102 @@ import {
   Heading,
   Image,
   chakra,
-  useColorModeValue,
+  Text,
   Skeleton,
-  Link as ChakraLink,
-  useBreakpoint,
 } from '@chakra-ui/react';
-import Link from 'next/link';
 import React, { useState } from 'react';
 import { NextSeo } from 'next-seo';
-import AboutTerminal from '@/components/AboutTerminal';
 
 export default function Home(): React.ReactElement {
   const [imageLoad, setImageLoad] = useState(false);
-  const bp = useBreakpoint();
+
   return (
     <>
       <NextSeo title='Home' />
-
       <Box
         minH='100vh'
-        height='full'
-        width={{ base: '95%', md: '90%', lg: '80%', xl: '90%W' }}
         maxW='7xl'
         mx='auto'
-        pt={{ base: '28', sm: '14', md: '16', xl: '20' }}
+        px={{ base: 6, md: 12, xl: 20 }}
+        pt={{ base: '28', md: '32' }}
+        pb={20}
       >
-        {/* Im not actually too sure why this needs to be here, but without this additional flex
-        the body doesn't begin at the top of the page... */}
         <Flex
-          direction='column'
-          justifyContent={{ base: 'center', md: 'flex-start' }}
-          height='full'
-          width='full'
-          p={{ base: 0, sm: 16 }}
+          direction={{ base: 'column', lg: 'row' }}
+          alignItems={{ base: 'flex-start', lg: 'center' }}
+          gap={{ base: 12, lg: 16 }}
+          minH='80vh'
         >
-          <Flex
-            direction={{ base: `column`, lg: `row` }}
-            alignItems='center'
-            mx='auto'
-            my={{ xl: '16' }}
-          >
-            <Skeleton isLoaded={imageLoad} boxSize='250px' borderRadius='2xl' m='auto'>
+          {/* Left: text */}
+          <Box flex={1}>
+            <Box w='40px' h='3px' bg='brand.500' mb={8} />
+
+            <Heading
+              fontSize={{ base: '6xl', md: '8xl', xl: '9xl' }}
+              fontWeight='800'
+              letterSpacing='-0.04em'
+              lineHeight='0.92'
+              textTransform='uppercase'
+              color='#E8E3D8'
+              mb={10}
+            >
+              Aishwarya
+              <chakra.span display='block'>Verma.</chakra.span>
+            </Heading>
+
+            <Box borderLeft='3px solid' borderColor='brand.500' pl={4} mb={10}>
+              <Text
+                fontSize='xs'
+                fontWeight='600'
+                letterSpacing='0.15em'
+                textTransform='uppercase'
+                color='brand.400'
+                mb={1}
+              >
+                Lead AI Engineer
+              </Text>
+              <Text fontSize='sm' color='#8A8278'>
+                New York City
+              </Text>
+            </Box>
+
+            <Box maxW='520px' color='#B5B0A8' fontSize='md' lineHeight='1.8'>
+              <Text mb={5}>
+                AI that ships. I build across products, applications, and use
+                cases{'—'}from the model layer to the thing people actually use.
+              </Text>
+              <Text mb={5}>
+                Always hunting for the next idea, the gap nobody&apos;s filled,
+                the problem worth turning into a product.
+              </Text>
+              <Text>
+                Off the clock: fashion meets tech, good food, galleries, live
+                music, new cities, philosophy, and the occasional deep dive into
+                why people do what they do. Loud advocate for{' '}
+                <chakra.span fontWeight='600' color='#E8E3D8'>
+                  Women in STEM &amp; Leadership
+                </chakra.span>
+                .
+              </Text>
+            </Box>
+          </Box>
+
+          {/* Right: photo */}
+          <Box flexShrink={0} width={{ base: 'full', lg: '360px' }}>
+            <Skeleton isLoaded={imageLoad} borderRadius='2xl'>
               <Image
-                flexGrow={3}
-                borderRadius='2xl'
-                boxSize='250px'
                 src='./static/images/profile.jpg'
-                objectFit='cover'
                 alt='Aishwarya Verma'
+                borderRadius='2xl'
+                objectFit='cover'
+                width='full'
+                height={{ base: '420px', lg: '500px' }}
+                sx={{ filter: 'grayscale(100%)' }}
+                boxShadow='0 0 0 2px #C4503A, 0 0 50px rgba(196, 80, 58, 0.12)'
                 onLoad={() => setImageLoad(true)}
               />
             </Skeleton>
-            <Flex
-              alignSelf='center'
-              direction='column'
-              pl={{ base: 0, lg: 10 }}
-              my={{ base: 10, lg: 0 }}
-              flexGrow={1}
-            >
-              <Heading
-                fontSize={{ base: `5xl`, lg: `7xl` }}
-                fontWeight='700'
-                letterSpacing='-0.03em'
-                lineHeight='1.05'
-                textAlign={{ base: `center`, lg: `left` }}
-                color={useColorModeValue(`gray.900`, `gray.50`)}
-              >
-                Hi, I&apos;m{' '}
-                <chakra.span color={useColorModeValue(`brand.500`, `brand.300`)}>
-                  Aishwarya
-                </chakra.span>
-                .
-              </Heading>
-              <chakra.p
-                maxW='650px'
-                textAlign={{ base: `center`, lg: `left` }}
-                fontSize='l'
-                mt={2}
-              >
-                A Lead AI Engineer working across AI products and applications, with one eye always on the bigger picture: the product, the business, the problem worth solving. Perpetually on the lookout for the next idea or the gap nobody has filled yet.
-                <br/><br/>Off the clock: advocating for <b>Women in STEM</b>, exploring where <b>tech meets fashion & luxury</b>, getting lost in good <b>food and art</b>, reading about <b>philosophy</b> and <b>human behavior</b>, catching live <b>music</b>, and traveling somewhere new.
-                <br/><br/>Here, you can find my{' '}
-                <Link href='/projects' passHref>
-                  <ChakraLink>projects</ChakraLink>
-                </Link> {' '}
-                 , {' '}
-                 <Link href='/tools' passHref>
-                  <ChakraLink>tools</ChakraLink>
-                </Link>{' '}
-                I like working with or the{' '}
-                <Link href='/certificates' passHref>
-                  <ChakraLink>certificates</ChakraLink>
-                </Link>{' '}
-                I own. <br/>Sometimes I even write{' '}
-                <Link href='/blog' passHref>
-                  <ChakraLink>blogs</ChakraLink>
-                </Link>{' '}
-                where I articulate my thoughts and learnings. 
-                <br/><br/><b>P.S.</b> Head to the footer if you wanna vibe with me on a song I might be listening to at the moment :)
-                
-              </chakra.p>
-            </Flex>
-          </Flex>
-          {!['base', 'sm'].includes(bp) && <AboutTerminal />}
+          </Box>
         </Flex>
       </Box>
     </>

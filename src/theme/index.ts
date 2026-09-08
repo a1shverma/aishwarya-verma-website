@@ -3,7 +3,8 @@ import { transparentize, mode } from '@chakra-ui/theme-tools';
 
 const theme = extendTheme({
   config: {
-    useSystemColorMode: true,
+    initialColorMode: 'dark',
+    useSystemColorMode: false,
   },
   fonts: {
     heading: `'Inter', -apple-system, BlinkMacSystemFont, sans-serif`,
@@ -13,7 +14,7 @@ const theme = extendTheme({
   components: {
     Link: {
       baseStyle: props => ({
-        color: mode('brand.600', 'brand.400')(props),
+        color: mode('brand.500', 'brand.400')(props),
       }),
     },
     Heading: {
@@ -48,31 +49,31 @@ const theme = extendTheme({
     },
   },
   styles: {
-    global: (props: any) => ({
+    global: {
       body: {
-        bg: mode('#FAFAF9', '#0D0D0D')(props),
-        color: mode('#0A0A0A', '#F5F4F0')(props),
+        bg: '#0E0B0A',
+        color: '#E8E3D8',
       },
       '*': {
-        _selection: {
-          color: props.colorMode === `dark` ? `black` : `white`,
-          bg: props.colorMode === `dark` ? `brand.300` : `brand.600`,
+        '&::selection': {
+          color: 'black',
+          bg: '#C4503A',
         },
       },
-    }),
+    },
   },
   colors: {
     brand: {
-      50: `#F5F0FF`,
-      100: `#EDE5FF`,
-      200: `#D8C9FF`,
-      300: `#BE9FFF`,
-      400: `#9A75F9`,
-      500: `#6E56CF`,
-      600: `#5A40B8`,
-      700: `#4730A0`,
-      800: `#352280`,
-      900: `#23145F`,
+      50: `#FDF0ED`,
+      100: `#FADDD6`,
+      200: `#F4B8AC`,
+      300: `#EC8E7E`,
+      400: `#D96652`,
+      500: `#C4503A`,
+      600: `#A63D2A`,
+      700: `#8A2E1E`,
+      800: `#6E2015`,
+      900: `#52160C`,
     },
   },
 });

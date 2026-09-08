@@ -12,7 +12,6 @@ import {
 import { transparentize } from '@chakra-ui/theme-tools'
 import Link from 'next/link'
 import { ChevronDownIcon } from '@chakra-ui/icons'
-import ToggleTheme from './ToggleTheme'
 
 function DesktopNav({ links }: { links: any }): JSX.Element {
   const { colorMode } = useColorMode()
@@ -107,9 +106,6 @@ function DesktopNav({ links }: { links: any }): JSX.Element {
         }
         return null
       })}
-      <HStack spacing={2}>
-        <ToggleTheme />
-      </HStack>
     </HStack>
   )
 }

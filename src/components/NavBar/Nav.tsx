@@ -77,7 +77,7 @@ function Nav(): JSX.Element {
       top={0}
       left={0}
       zIndex={10}
-      bg={useColorModeValue(`rgba(250, 250, 249, 0.85)`, `rgba(13, 13, 13, 0.9)`)}
+      bg='rgba(14, 11, 10, 0.92)'
       sx={{ backdropFilter: `saturate(180%) blur(5px)` }}
     >
       <chakra.nav mx='auto' p={3}>
@@ -124,7 +124,7 @@ function Nav(): JSX.Element {
                   }}
                   color={colorMode === 'light' ? 'gray.900' : 'white'}
                 >
-                  Aishwarya Verma
+                  a1shverma
                 </ChakraLink>
               )}
             </Link>
@@ -147,7 +147,7 @@ const AnimatedTitle = () => (
     fontWeight='semibold'
     textAlign='center'
   >
-    Aishwarya Verma
+    a1shverma
     {/* eslint-disable-next-line @next/next/no-img-element */}
     <chakra.svg
       className='path-under'

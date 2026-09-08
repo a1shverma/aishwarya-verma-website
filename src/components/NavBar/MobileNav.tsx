@@ -4,21 +4,17 @@ import {
   Button,
   CloseButton,
   IconButton,
-  useColorModeValue,
   useDisclosure,
   VStack,
   Link as ChakraLink,
 } from '@chakra-ui/react'
 import Link from 'next/link'
 import { AiOutlineMenu } from 'react-icons/ai'
-import ToggleTheme from './ToggleTheme'
 
 function MobileNav({ links }: { links: any }): JSX.Element {
   const mobileNav = useDisclosure()
   return (
     <Box display={{ md: `none` }}>
-      <ToggleTheme />
-
       <IconButton
         aria-label='toggle menu'
         icon={
@@ -40,7 +36,7 @@ function MobileNav({ links }: { links: any }): JSX.Element {
         height='100vh'
         css={{
           backdropFilter: `saturate(180%) blur(5px)`,
-          backgroundColor: useColorModeValue(`rgba(255, 255, 255, 0.9)`, `rgba(26, 32, 44, 0.9)`),
+          backgroundColor: `rgba(14, 11, 10, 0.97)`,
         }}
         display={mobileNav.isOpen ? `flex` : `none`}
         flexDirection='column'
