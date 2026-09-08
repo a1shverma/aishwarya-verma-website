@@ -98,7 +98,6 @@ function Nav(): JSX.Element {
                   margin='auto'
                   fontWeight='semibold'
                   position='relative'
-                  textTransform='capitalize'
                   _after={{
                     transition: `all 0.25s ease-in-out`,
                     content: `''`,
