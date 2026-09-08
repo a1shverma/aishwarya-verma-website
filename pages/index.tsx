@@ -85,16 +85,14 @@ export default function Home(): React.ReactElement {
           </Box>
 
           {/* Right: photo */}
-          <Box flexShrink={0} width={{ base: 'full', lg: '340px' }}>
+          <Box flexShrink={0}>
             <Skeleton isLoaded={imageLoad} borderRadius='2xl'>
               <Image
                 src='./static/images/profile.jpg'
                 alt='Aishwarya Verma'
                 borderRadius='2xl'
                 objectFit='cover'
-                objectPosition='center 15%'
-                width='full'
-                height={{ base: '360px', lg: '440px' }}
+                boxSize={{ base: '280px', lg: '340px' }}
                 sx={{ filter: 'grayscale(100%)' }}
                 boxShadow='0 0 0 2px #C4503A, 0 0 50px rgba(196, 80, 58, 0.12)'
                 onLoad={() => setImageLoad(true)}
