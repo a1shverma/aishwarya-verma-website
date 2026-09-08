@@ -35,7 +35,7 @@ export default function Home(): React.ReactElement {
             <Box w='40px' h='3px' bg='brand.500' mb={8} />
 
             <Heading
-              fontSize={{ base: '6xl', md: '8xl', xl: '9xl' }}
+              fontSize={{ base: '5xl', md: '6xl', xl: '7xl' }}
               fontWeight='800'
               letterSpacing='-0.04em'
               lineHeight='0.92'
@@ -85,15 +85,16 @@ export default function Home(): React.ReactElement {
           </Box>
 
           {/* Right: photo */}
-          <Box flexShrink={0} width={{ base: 'full', lg: '360px' }}>
+          <Box flexShrink={0} width={{ base: 'full', lg: '340px' }}>
             <Skeleton isLoaded={imageLoad} borderRadius='2xl'>
               <Image
                 src='./static/images/profile.jpg'
                 alt='Aishwarya Verma'
                 borderRadius='2xl'
                 objectFit='cover'
+                objectPosition='center 15%'
                 width='full'
-                height={{ base: '420px', lg: '500px' }}
+                height={{ base: '360px', lg: '440px' }}
                 sx={{ filter: 'grayscale(100%)' }}
                 boxShadow='0 0 0 2px #C4503A, 0 0 50px rgba(196, 80, 58, 0.12)'
                 onLoad={() => setImageLoad(true)}
